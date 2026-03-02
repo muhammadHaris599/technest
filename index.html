@@ -1,427 +1,407 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TECHNEST | AI Revenue Machine</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-:root{
---bg:#02050a;
---bg2:#08111f;
---card:#0c1626;
---text:#d8e6ff;
---muted:#8ea8d8;
---neon:#00f0ff;
---neon2:#4e7bff;
---accent:#7df8ff;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-font-family:'Inter',sans-serif;
-background:radial-gradient(circle at 10% 10%,#0b1c34 0%,var(--bg) 35%,#01040a 100%);
-color:#fff;
-line-height:1.7;
-overflow-x:hidden;
-}
-
-a{text-decoration:none}
-
-header{
-position:fixed;top:0;width:100%;
-padding:20px 8%;
-display:flex;justify-content:space-between;align-items:center;
-background:rgba(2,5,10,0.72);
-backdrop-filter:blur(14px);
-z-index:1000;
-border-bottom:1px solid rgba(0,240,255,0.15);
-}
-
-.logo{font-size:28px;font-weight:900;letter-spacing:.3px}
-.logo span{
-background:linear-gradient(90deg,var(--neon2),var(--neon));
--webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-
-nav a{margin-left:30px;color:#cbd6ff;font-weight:600;transition:.25s}
-nav a:hover{color:#fff;text-shadow:0 0 20px rgba(0,240,255,.8)}
-.cta{
-padding:12px 28px;border-radius:40px;
-background:linear-gradient(90deg,var(--neon2),var(--neon));
-box-shadow:0 0 35px rgba(0,240,255,.5);
-color:#001029;
-}
-
-section{padding:150px 8% 100px;margin:auto}
-.section-title{
-font-size:clamp(36px,6vw,58px);
-text-align:center;
-margin-bottom:70px;
-text-shadow:0 0 50px rgba(0,240,255,.45);
-}
-
-/* HERO */
-.hero{
-padding-top:240px;text-align:center;
-background:
-linear-gradient(rgba(2,5,10,0.86), rgba(2,5,10,0.96)),
-url("hero-bg.png") center/cover no-repeat;
-border-radius:0 0 40px 40px;
-}
-
-.hero h1{
-font-size:clamp(44px,9vw,84px);
-font-weight:900;line-height:1.03;
-text-shadow:0 0 80px rgba(0,240,255,.42);
-}
-
-.hero p{margin-top:25px;font-size:clamp(18px,2.8vw,26px);color:#aac2f9;}
-.revenue{margin-top:16px;font-size:clamp(20px,3vw,30px);color:var(--accent);font-weight:800}
-
-.btn{
-display:inline-block;margin-top:40px;
-padding:18px 52px;border-radius:50px;
-font-weight:800;font-size:17px;
-background:linear-gradient(90deg,var(--neon2),var(--neon));
-box-shadow:0 0 44px rgba(0,240,255,.45);
-transition:.3s;
-color:#001029;
-}
-.btn:hover{transform:translateY(-6px);box-shadow:0 0 90px rgba(0,240,255,.65)}
-
-/* STATS */
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:24px;text-align:center;margin-top:90px;
-}
-.stat{
-background:rgba(8,17,31,.6);
-border:1px solid rgba(0,240,255,.24);
-padding:24px;
-border-radius:20px;
-box-shadow:0 0 30px rgba(0,240,255,.1);
-}
-.stat-number{
-font-size:58px;font-weight:900;color:var(--neon);
-text-shadow:0 0 30px rgba(0,240,255,.65);
-}
-.stat-label{margin-top:5px;font-size:16px;color:#afc0e9}
-
-/* SECTION BOX */
-.section-box{
-background:linear-gradient(180deg,rgba(8,17,31,.92),rgba(5,11,22,.95));
-padding:90px 50px;
-border-radius:36px;
-border:1px solid rgba(0,240,255,.35);
-box-shadow:0 0 80px rgba(0,240,255,0.15);
-}
-
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-
-.card{
-position:relative;
-background:linear-gradient(160deg,rgba(17,32,53,.95),rgba(8,16,30,.9));
-padding:34px 28px;
-border-radius:22px;
-border:1px solid rgba(125,248,255,.22);
-transition:.28s;
-box-shadow:0 0 26px rgba(0,240,255,.1);
-overflow:hidden;
-}
-.card::before{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at top right, rgba(0,240,255,.17), transparent 45%);
-opacity:.9;
-pointer-events:none;
-}
-
-.card:hover{transform:translateY(-8px);border-color:rgba(0,240,255,.75);box-shadow:0 0 46px rgba(0,240,255,.34)}
-.service-icon{font-size:22px;display:inline-block;margin-bottom:10px}
-.card h3{font-size:24px;margin-bottom:8px;color:#e9f7ff}
-.card p{color:var(--muted);font-size:15px;line-height:1.55}
-
-.case-number{font-size:72px;font-weight:900;color:var(--neon);text-shadow:0 0 50px rgba(0,240,255,.6);text-align:center}
-.case-label{text-align:center;color:var(--text);margin-top:6px}
-
-.reviews-slider{
-position:relative;
-max-width:1120px;
-margin:0 auto;
-}
-.reviews-viewport{overflow:hidden}
-.reviews-track{
-display:flex;
-transition:transform .5s ease;
-}
-.review-slide{
-min-width:100%;
-padding:0 4px;
-}
-.testimonial{
-background:linear-gradient(160deg,rgba(17,32,53,.93),rgba(7,14,26,.92));
-padding:34px;border-radius:22px;
-border:1px solid rgba(0,240,255,.25);
-box-shadow:0 0 30px rgba(0,240,255,.12);
-min-height:210px;
-}
-.stars{color:#ffd76b;letter-spacing:2px;margin-bottom:14px}
-.testimonial p{color:var(--text);font-size:15px}
-.reviewer{margin-top:14px;color:#9fc4ff;font-weight:700;font-size:14px}
-.reviews-controls{display:flex;justify-content:center;gap:12px;margin-top:22px}
-.slider-btn{
-height:42px;width:42px;border-radius:50%;
-border:1px solid rgba(0,240,255,.45);
-background:rgba(0,240,255,.11);
-color:#dfffff;font-size:22px;line-height:1;cursor:pointer;
-transition:.2s;
-}
-.slider-btn:hover{background:rgba(0,240,255,.26);transform:translateY(-2px)}
-
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.process-step{
-background:linear-gradient(165deg,rgba(13,24,42,.96),rgba(7,13,24,.94));
-border:1px solid rgba(0,240,255,.26);
-border-radius:20px;
-padding:30px 24px;
-box-shadow:0 0 24px rgba(0,240,255,.12);
-}
-.step-number{font-size:14px;color:var(--accent);font-weight:800;letter-spacing:.9px}
-.process-step h3{font-size:24px;margin:8px 0 10px;color:#eaf8ff}
-.process-step p{color:var(--muted);font-size:15px;line-height:1.6}
-
-.faq-wrap{max-width:980px;margin:0 auto}
-.faq-item{
-background:linear-gradient(165deg,rgba(14,26,46,.95),rgba(7,14,26,.93));
-border:1px solid rgba(0,240,255,.25);
-border-radius:18px;
-padding:24px;
-margin-bottom:14px;
-box-shadow:0 0 20px rgba(0,240,255,.08);
-}
-.faq-item h3{font-size:22px;color:#e8f6ff;margin-bottom:6px}
-.faq-item p{color:#a9bee4}
-
-@@ -207,92 +230,104 @@ padding:56px;border-radius:24px;
-border:1px solid rgba(0,240,255,.3);
-box-shadow:0 0 50px rgba(0,240,255,.14);
-max-width:800px;margin:auto;
-}
-
-form input,form textarea,form select{
-width:100%;padding:14px 16px;margin-bottom:16px;
-background:#07101c;border:1px solid rgba(0,240,255,.35);
-color:#fff;border-radius:10px;font-weight: 600;font-size: 16px;
-}
-
-
-.conversion-strip{
-margin:20px auto 0;
-max-width:1100px;
-padding:28px 26px;
-border-radius:22px;
-background:linear-gradient(90deg,rgba(0,102,255,.25),rgba(0,240,255,.18));
-border:1px solid rgba(0,240,255,.35);
-display:flex;justify-content:space-between;align-items:center;gap:20px;
-box-shadow:0 0 34px rgba(0,240,255,.16);
-}
-.conversion-strip h3{font-size:28px;line-height:1.2}
-.conversion-strip p{color:#c9dbff}
-
-
-.calendly-wrap{
-max-width:1100px;
-margin:0 auto;
-padding:26px;
-border-radius:24px;
-background:linear-gradient(160deg,rgba(13,24,42,.96),rgba(7,13,24,.94));
-border:1px solid rgba(0,240,255,.3);
-box-shadow:0 0 40px rgba(0,240,255,.14);
-}
-.calendly-inline-widget{width:100%}
-
-footer{
-background:#07101c;padding:90px 8%;margin-top:120px;
-display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-gap:40px;border-top:1px solid rgba(0,240,255,.26);
-box-shadow:0 -10px 50px rgba(0,240,255,0.08);
-}
-footer p{color:#9ab0d9}
-footer h4{margin-bottom:14px;color:var(--neon)}
-
-@media(max-width:1100px){
-.grid-3,.stats,.process-grid,footer{grid-template-columns:1fr 1fr}
-}
-
-@media(max-width:768px){
-.grid-3,.stats,.process-grid,footer{grid-template-columns:1fr}
-.hero{padding-top:190px}
-nav{display:none}
-.section-box{padding:55px 24px}
-form{padding:36px 20px}
-.conversion-strip{flex-direction:column;text-align:center}
-}
-</style>
-</head>
-
-<body>
-<header>
-<div class="logo">TECH<span>NEST</span></div>
-<nav>
-<a href="#services">Services</a>
-<a href="#process">Process</a>
-<a href="#reviews">Reviews</a>
-<a href="#faq">FAQ</a>
-<a href="#pricing">Pricing</a>
-<a href="#schedule-call" class="cta">Free Strategy Call</a>
-</nav>
-</header>
-
-<section class="hero">
-<h1>We Build Revenue Machines</h1>
-<p>AI-powered growth systems engineered for predictable scale.</p>
-<div class="revenue">$2M+ Revenue Generated</div>
-<a href="#schedule-call" class="btn">Start Scaling Now</a>
-
-<div class="stats">
-<div class="stat"><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
-<div class="stat"><div class="stat-number">4.7x</div><div class="stat-label">ROAS</div></div>
-<div class="stat"><div class="stat-number">540+</div><div class="stat-label">Qualified Leads</div></div>
-<div class="stat"><div class="stat-number">8+</div><div class="stat-label">Industries</div></div>
-</div>
-</section>
-
-<section id="process">
-<h2 class="section-title">How We Work</h2>
-<div class="process-grid">
-<div class="process-step"><div class="step-number">STEP 01</div><h3>Come on Call</h3><p>We start with a strategy call to understand your business model, current bottlenecks, and growth targets.</p></div>
-<div class="process-step"><div class="step-number">STEP 02</div><h3>Your Wants</h3><p>You tell us exactly what you want: more leads, higher ROAS, better conversion rates, or full-funnel scale.</p></div>
-<div class="process-step"><div class="step-number">STEP 03</div><h3>Onboarding</h3><p>Our team sets up onboarding quickly with audits, roadmap approval, and clear KPI tracking from day one.</p></div>
-<div class="process-step"><div class="step-number">STEP 04</div><h3>Get Results</h3><p>We launch, optimize, and report continuously so you see consistent performance improvements and revenue growth.</p></div>
-</div>
-</section>
-
-<section id="services">
-<div class="section-box">
-<h2 class="section-title">Full Performance Stack</h2>
-<div class="grid-3">
-<div class="card"><span class="service-icon">🔍</span><h3>SEO</h3><p>Technical SEO + topical authority architecture to rank and compound organic traffic.</p></div>
-<div class="card"><span class="service-icon">🧪</span><h3>CRO</h3><p>Data-backed conversion optimization to turn clicks into measurable revenue lifts.</p></div>
-@@ -310,78 +345,112 @@ form{padding:36px 20px}
-</div>
-</div>
-</section>
-
-<section id="faq">
-<h2 class="section-title">Frequently Asked Questions</h2>
-<div class="faq-wrap">
-<div class="faq-item"><h3>How soon can we start?</h3><p>Most clients start within 3-5 business days after the strategy call and onboarding confirmation.</p></div>
-<div class="faq-item"><h3>Do you work with small businesses or only large brands?</h3><p>We work with startups, D2C stores, SaaS companies, and established businesses as long as growth is a priority.</p></div>
-<div class="faq-item"><h3>Will I get regular performance updates?</h3><p>Yes. You receive clear weekly updates plus monthly strategy reviews with ROI, lead quality, and next-step action plans.</p></div>
-<div class="faq-item"><h3>What if I only need one service?</h3><p>No problem. You can start with one service (like SEO or Ads) and expand to a full growth stack later.</p></div>
-</div>
-</section>
-
-<section>
-<h2 class="section-title">Case Studies</h2>
-<div class="grid-3">
-<div class="card"><div class="case-number">+312%</div><div class="case-label">Organic Sessions in 6 Months</div></div>
-<div class="card"><div class="case-number">4.7x</div><div class="case-label">Average Paid Media ROAS</div></div>
-<div class="card"><div class="case-number">540+</div><div class="case-label">Qualified Leads Per Quarter</div></div>
-</div>
-</section>
-
-<section id="reviews">
-<h2 class="section-title">Client Reviews</h2>
-<div class="reviews-slider" aria-label="Client review slider">
-<div class="reviews-viewport">
-<div class="reviews-track" id="reviews-track">
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“TECHNEST rebuilt our funnel and we saw high-quality leads almost immediately. Their communication and reporting are world-class.”</p><div class="reviewer">— Aarav, SaaS Founder</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“From ad strategy to landing page CRO, they handled everything. We scaled revenue while lowering CAC month after month.”</p><div class="reviewer">— Nisha, D2C Brand Owner</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“The team brings structure, speed, and real expertise. Our organic traffic and email conversion rates are at an all-time high.”</p><div class="reviewer">— Rohan, Ecommerce Director</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“In just 8 weeks, our demo bookings doubled and the lead quality improved massively.”</p><div class="reviewer">— Hassan, B2B Consultant</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Clear communication, fast execution, and measurable results. Exactly what we needed.”</p><div class="reviewer">— Mehak, Founder at GlowCart</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Their SEO and content engine helped us rank for terms we never thought possible.”</p><div class="reviewer">— Bilal, SaaS Marketing Lead</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Our Shopify store speed and conversion rate both went up after their optimization sprint.”</p><div class="reviewer">— Hira, Ecommerce Owner</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“The ad reporting is super transparent. We know exactly where every dollar is going.”</p><div class="reviewer">— Danish, Performance Manager</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Amazing strategy + implementation combo. Revenue is up and CAC is down.”</p><div class="reviewer">— Zainab, D2C Co-Founder</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“They built a complete lead-gen funnel for us and it started producing in the first month.”</p><div class="reviewer">— Faraz, Real Estate Team Lead</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Best agency experience so far. They treat your KPIs like their own goals.”</p><div class="reviewer">— Saba, Startup Founder</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“From website revamp to paid scaling, everything felt organized and high quality.”</p><div class="reviewer">— Imran, Education Brand Owner</div></div></div>
-<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Our email automation now recovers sales daily. Big win for retention.”</p><div class="reviewer">— Sana, CRM Lead</div></div></div>
-</div>
-</div>
-<div class="reviews-controls">
-<button class="slider-btn" type="button" id="reviews-prev" aria-label="Previous review">‹</button>
-<button class="slider-btn" type="button" id="reviews-next" aria-label="Next review">›</button>
-</div>
-</div>
-</section>
-
-<section id="pricing">
-<h2 class="section-title">Pricing</h2>
-<p style="text-align:center;color:#a8c0ec;margin-top:-44px;margin-bottom:34px;">Transparent monthly retainers in USD. Final quote depends on ad spend, scope, and market competition.</p>
-<div class="grid-3">
-<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#schedule-call">Choose Starter</a></div>
-<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#schedule-call">Choose Growth</a></div>
-<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#schedule-call">Choose Scale</a></div>
-</div>
-</section>
-
-<section>
-<div class="conversion-strip">
-<div>
-<h3>Ready to turn traffic into predictable revenue?</h3>
-<p>Book a free strategy call and get a custom 90-day growth roadmap.</p>
-</div>
-<a href="#schedule-call" class="btn" style="margin-top:0">Book Free Strategy Call</a>
-</div>
-</section>
-
-<section id="schedule-call">
-<h2 class="section-title">Schedule Your Strategy Call</h2>
-<div class="calendly-wrap">
-<div class="calendly-inline-widget" data-url="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-</div>
-</section>
-
-<footer>
-<div><h4>TECHNEST</h4><p>AI Revenue Systems Agency</p></div>
-<div><h4>Services</h4><p>SEO • CRO • Paid Media</p></div>
-<div><h4>Industries</h4><p>SaaS • D2C • B2B</p></div>
-<div><h4>Global</h4><p>Remote-first worldwide execution</p></div>
-</footer>
-
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script>
-const reviewsTrack = document.getElementById('reviews-track');
-const reviewSlides = document.querySelectorAll('.review-slide');
-const prevReviewBtn = document.getElementById('reviews-prev');
-const nextReviewBtn = document.getElementById('reviews-next');
-let reviewIndex = 0;
-
-function renderReviewSlider(){
-reviewsTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
-}
-
-function nextReview(){
-reviewIndex = (reviewIndex + 1) % reviewSlides.length;
-renderReviewSlider();
-}
-
-function previousReview(){
-reviewIndex = (reviewIndex - 1 + reviewSlides.length) % reviewSlides.length;
-renderReviewSlider();
-}
-
-prevReviewBtn.addEventListener('click', previousReview);
-nextReviewBtn.addEventListener('click', nextReview);
-setInterval(nextReview, 5000);
-</script>
-</body>
-</html>
+1	<!DOCTYPE html>
+     2	<html lang="en">
+     3	<head>
+     4	<meta charset="UTF-8">
+     5	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	<title>TECHNEST | AI Revenue Machine</title>
+     7	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+     8	
+     9	<style>
+    10	:root{
+    11	--bg:#02050a;
+    12	--bg2:#08111f;
+    13	--card:#0c1626;
+    14	--text:#d8e6ff;
+    15	--muted:#8ea8d8;
+    16	--neon:#00f0ff;
+    17	--neon2:#4e7bff;
+    18	--accent:#7df8ff;
+    19	}
+    20	
+    21	*{margin:0;padding:0;box-sizing:border-box}
+    22	html{scroll-behavior:smooth}
+    23	body{
+    24	font-family:'Inter',sans-serif;
+    25	background:radial-gradient(circle at 10% 10%,#0b1c34 0%,var(--bg) 35%,#01040a 100%);
+    26	color:#fff;
+    27	line-height:1.7;
+    28	overflow-x:hidden;
+    29	}
+    30	
+    31	a{text-decoration:none}
+    32	
+    33	header{
+    34	position:fixed;top:0;width:100%;
+    35	padding:20px 8%;
+    36	display:flex;justify-content:space-between;align-items:center;
+    37	background:rgba(2,5,10,0.72);
+    38	backdrop-filter:blur(14px);
+    39	z-index:1000;
+    40	border-bottom:1px solid rgba(0,240,255,0.15);
+    41	}
+    42	
+    43	.logo{font-size:28px;font-weight:900;letter-spacing:.3px}
+    44	.logo span{
+    45	background:linear-gradient(90deg,var(--neon2),var(--neon));
+    46	-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    47	}
+    48	
+    49	nav a{margin-left:30px;color:#cbd6ff;font-weight:600;transition:.25s}
+    50	nav a:hover{color:#fff;text-shadow:0 0 20px rgba(0,240,255,.8)}
+    51	.cta{
+    52	padding:12px 28px;border-radius:40px;
+    53	background:linear-gradient(90deg,var(--neon2),var(--neon));
+    54	box-shadow:0 0 35px rgba(0,240,255,.5);
+    55	color:#001029;
+    56	}
+    57	
+    58	section{padding:150px 8% 100px;margin:auto}
+    59	.section-title{
+    60	font-size:clamp(36px,6vw,58px);
+    61	text-align:center;
+    62	margin-bottom:70px;
+    63	text-shadow:0 0 50px rgba(0,240,255,.45);
+    64	}
+    65	
+    66	/* HERO */
+    67	.hero{
+    68	padding-top:240px;text-align:center;
+    69	background:
+    70	linear-gradient(rgba(2,5,10,0.86), rgba(2,5,10,0.96)),
+    71	url("hero-bg.png") center/cover no-repeat;
+    72	border-radius:0 0 40px 40px;
+    73	}
+    74	
+    75	.hero h1{
+    76	font-size:clamp(44px,9vw,84px);
+    77	font-weight:900;line-height:1.03;
+    78	text-shadow:0 0 80px rgba(0,240,255,.42);
+    79	}
+    80	
+    81	.hero p{margin-top:25px;font-size:clamp(18px,2.8vw,26px);color:#aac2f9;}
+    82	.revenue{margin-top:16px;font-size:clamp(20px,3vw,30px);color:var(--accent);font-weight:800}
+    83	
+    84	.btn{
+    85	display:inline-block;margin-top:40px;
+    86	padding:18px 52px;border-radius:50px;
+    87	font-weight:800;font-size:17px;
+    88	background:linear-gradient(90deg,var(--neon2),var(--neon));
+    89	box-shadow:0 0 44px rgba(0,240,255,.45);
+    90	transition:.3s;
+    91	color:#001029;
+    92	}
+    93	.btn:hover{transform:translateY(-6px);box-shadow:0 0 90px rgba(0,240,255,.65)}
+    94	
+    95	/* STATS */
+    96	.stats{
+    97	display:grid;
+    98	grid-template-columns:repeat(4,1fr);
+    99	gap:24px;text-align:center;margin-top:90px;
+   100	}
+   101	.stat{
+   102	background:rgba(8,17,31,.6);
+   103	border:1px solid rgba(0,240,255,.24);
+   104	padding:24px;
+   105	border-radius:20px;
+   106	box-shadow:0 0 30px rgba(0,240,255,.1);
+   107	}
+   108	.stat-number{
+   109	font-size:58px;font-weight:900;color:var(--neon);
+   110	text-shadow:0 0 30px rgba(0,240,255,.65);
+   111	}
+   112	.stat-label{margin-top:5px;font-size:16px;color:#afc0e9}
+   113	
+   114	/* SECTION BOX */
+   115	.section-box{
+   116	background:linear-gradient(180deg,rgba(8,17,31,.92),rgba(5,11,22,.95));
+   117	padding:90px 50px;
+   118	border-radius:36px;
+   119	border:1px solid rgba(0,240,255,.35);
+   120	box-shadow:0 0 80px rgba(0,240,255,0.15);
+   121	}
+   122	
+   123	.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+   124	
+   125	.card{
+   126	position:relative;
+   127	background:linear-gradient(160deg,rgba(17,32,53,.95),rgba(8,16,30,.9));
+   128	padding:34px 28px;
+   129	border-radius:22px;
+   130	border:1px solid rgba(125,248,255,.22);
+   131	transition:.28s;
+   132	box-shadow:0 0 26px rgba(0,240,255,.1);
+   133	overflow:hidden;
+   134	}
+   135	.card::before{
+   136	content:"";
+   137	position:absolute;
+   138	inset:0;
+   139	background:radial-gradient(circle at top right, rgba(0,240,255,.17), transparent 45%);
+   140	opacity:.9;
+   141	pointer-events:none;
+   142	}
+   143	
+   144	.card:hover{transform:translateY(-8px);border-color:rgba(0,240,255,.75);box-shadow:0 0 46px rgba(0,240,255,.34)}
+   145	.service-icon{font-size:22px;display:inline-block;margin-bottom:10px}
+   146	.card h3{font-size:24px;margin-bottom:8px;color:#e9f7ff}
+   147	.card p{color:var(--muted);font-size:15px;line-height:1.55}
+   148	
+   149	.case-number{font-size:72px;font-weight:900;color:var(--neon);text-shadow:0 0 50px rgba(0,240,255,.6);text-align:center}
+   150	.case-label{text-align:center;color:var(--text);margin-top:6px}
+   151	
+   152	.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+   153	.testimonial{
+   154	background:linear-gradient(160deg,rgba(17,32,53,.93),rgba(7,14,26,.92));
+   155	padding:34px;border-radius:22px;
+   156	border:1px solid rgba(0,240,255,.25);
+   157	box-shadow:0 0 30px rgba(0,240,255,.12);
+   158	}
+   159	.stars{color:#ffd76b;letter-spacing:2px;margin-bottom:14px}
+   160	.testimonial p{color:var(--text);font-size:15px}
+   161	.reviewer{margin-top:14px;color:#9fc4ff;font-weight:700;font-size:14px}
+   162	
+   163	.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+   164	.process-step{
+   165	background:linear-gradient(165deg,rgba(13,24,42,.96),rgba(7,13,24,.94));
+   166	border:1px solid rgba(0,240,255,.26);
+   167	border-radius:20px;
+   168	padding:30px 24px;
+   169	box-shadow:0 0 24px rgba(0,240,255,.12);
+   170	}
+   171	.step-number{font-size:14px;color:var(--accent);font-weight:800;letter-spacing:.9px}
+   172	.process-step h3{font-size:24px;margin:8px 0 10px;color:#eaf8ff}
+   173	.process-step p{color:var(--muted);font-size:15px;line-height:1.6}
+   174	
+   175	.faq-wrap{max-width:980px;margin:0 auto}
+   176	.faq-item{
+   177	background:linear-gradient(165deg,rgba(14,26,46,.95),rgba(7,14,26,.93));
+   178	border:1px solid rgba(0,240,255,.25);
+   179	border-radius:18px;
+   180	padding:24px;
+   181	margin-bottom:14px;
+   182	box-shadow:0 0 20px rgba(0,240,255,.08);
+   183	}
+   184	.faq-item h3{font-size:22px;color:#e8f6ff;margin-bottom:6px}
+   185	.faq-item p{color:#a9bee4}
+   186	
+   187	.price-card{
+   188	background:var(--card);
+   189	padding:60px 34px;
+   190	border-radius:24px;text-align:center;
+   191	border:1px solid rgba(0,240,255,.3);
+   192	box-shadow:0 0 36px rgba(0,240,255,.12);
+   193	}
+   194	.price-card.featured{box-shadow:0 0 90px rgba(0,240,255,.48);border-color:rgba(0,240,255,.8)}
+   195	.price-card h3{font-size:28px}
+   196	.plan-price{font-size:42px;font-weight:900;color:var(--accent);margin:10px 0 4px;text-shadow:0 0 24px rgba(0,240,255,.35)}
+   197	.plan-cycle{color:#9cb4df;font-size:14px;margin-bottom:14px}
+   198	.plan-features{list-style:none;text-align:left;margin:20px 0 24px;padding:0}
+   199	.plan-features li{margin-bottom:8px;color:#bdd1f4;font-size:14px}
+   200	.plan-features li::before{content:"✔ ";color:var(--accent);font-weight:700}
+   201	.mini-cta{display:inline-block;padding:11px 24px;border-radius:999px;background:rgba(0,240,255,.12);border:1px solid rgba(0,240,255,.45);color:#dfffff;font-weight:700;transition:.25s}
+   202	.mini-cta:hover{background:rgba(0,240,255,.24);transform:translateY(-2px)}
+   203	
+   204	form{
+   205	background:var(--card);
+   206	padding:56px;border-radius:24px;
+   207	border:1px solid rgba(0,240,255,.3);
+   208	box-shadow:0 0 50px rgba(0,240,255,.14);
+   209	max-width:800px;margin:auto;
+   210	}
+   211	
+   212	form input,form textarea,form select{
+   213	width:100%;padding:14px 16px;margin-bottom:16px;
+   214	background:#07101c;border:1px solid rgba(0,240,255,.35);
+   215	color:#fff;border-radius:10px;font-weight: 600;font-size: 16px;
+   216	}
+   217	
+   218	
+   219	.conversion-strip{
+   220	margin:20px auto 0;
+   221	max-width:1100px;
+   222	padding:28px 26px;
+   223	border-radius:22px;
+   224	background:linear-gradient(90deg,rgba(0,102,255,.25),rgba(0,240,255,.18));
+   225	border:1px solid rgba(0,240,255,.35);
+   226	display:flex;justify-content:space-between;align-items:center;gap:20px;
+   227	box-shadow:0 0 34px rgba(0,240,255,.16);
+   228	}
+   229	.conversion-strip h3{font-size:28px;line-height:1.2}
+   230	.conversion-strip p{color:#c9dbff}
+   231	
+   232	
+   233	.calendly-wrap{
+   234	max-width:1100px;
+   235	margin:0 auto;
+   236	padding:26px;
+   237	border-radius:24px;
+   238	background:linear-gradient(160deg,rgba(13,24,42,.96),rgba(7,13,24,.94));
+   239	border:1px solid rgba(0,240,255,.3);
+   240	box-shadow:0 0 40px rgba(0,240,255,.14);
+   241	}
+   242	.calendly-inline-widget{width:100%}
+   243	
+   244	footer{
+   245	background:#07101c;padding:90px 8%;margin-top:120px;
+   246	display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+   247	gap:40px;border-top:1px solid rgba(0,240,255,.26);
+   248	box-shadow:0 -10px 50px rgba(0,240,255,0.08);
+   249	}
+   250	footer p{color:#9ab0d9}
+   251	footer h4{margin-bottom:14px;color:var(--neon)}
+   252	
+   253	@media(max-width:1100px){
+   254	.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr 1fr}
+   255	}
+   256	
+   257	@media(max-width:768px){
+   258	.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr}
+   259	.hero{padding-top:190px}
+   260	nav{display:none}
+   261	.section-box{padding:55px 24px}
+   262	form{padding:36px 20px}
+   263	.conversion-strip{flex-direction:column;text-align:center}
+   264	}
+   265	</style>
+   266	</head>
+   267	
+   268	<body>
+   269	<header>
+   270	<div class="logo">TECH<span>NEST</span></div>
+   271	<nav>
+   272	<a href="#services">Services</a>
+   273	<a href="#process">Process</a>
+   274	<a href="#reviews">Reviews</a>
+   275	<a href="#faq">FAQ</a>
+   276	<a href="#pricing">Pricing</a>
+   277	<a href="#schedule-call" class="cta">Free Strategy Call</a>
+   278	</nav>
+   279	</header>
+   280	
+   281	<section class="hero">
+   282	<h1>We Build Revenue Machines</h1>
+   283	<p>AI-powered growth systems engineered for predictable scale.</p>
+   284	<div class="revenue">$2M+ Revenue Generated</div>
+   285	<a href="#schedule-call" class="btn">Start Scaling Now</a>
+   286	
+   287	<div class="stats">
+   288	<div class="stat"><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
+   289	<div class="stat"><div class="stat-number">4.7x</div><div class="stat-label">ROAS</div></div>
+   290	<div class="stat"><div class="stat-number">540+</div><div class="stat-label">Qualified Leads</div></div>
+   291	<div class="stat"><div class="stat-number">8+</div><div class="stat-label">Industries</div></div>
+   292	</div>
+   293	</section>
+   294	
+   295	<section id="process">
+   296	<h2 class="section-title">How We Work</h2>
+   297	<div class="process-grid">
+   298	<div class="process-step"><div class="step-number">STEP 01</div><h3>Come on Call</h3><p>We start with a strategy call to understand your business model, current bottlenecks, and growth targets.</p></div>
+   299	<div class="process-step"><div class="step-number">STEP 02</div><h3>Your Wants</h3><p>You tell us exactly what you want: more leads, higher ROAS, better conversion rates, or full-funnel scale.</p></div>
+   300	<div class="process-step"><div class="step-number">STEP 03</div><h3>Onboarding</h3><p>Our team sets up onboarding quickly with audits, roadmap approval, and clear KPI tracking from day one.</p></div>
+   301	<div class="process-step"><div class="step-number">STEP 04</div><h3>Get Results</h3><p>We launch, optimize, and report continuously so you see consistent performance improvements and revenue growth.</p></div>
+   302	</div>
+   303	</section>
+   304	
+   305	<section id="services">
+   306	<div class="section-box">
+   307	<h2 class="section-title">Full Performance Stack</h2>
+   308	<div class="grid-3">
+   309	<div class="card"><span class="service-icon">🔍</span><h3>SEO</h3><p>Technical SEO + topical authority architecture to rank and compound organic traffic.</p></div>
+   310	<div class="card"><span class="service-icon">🧪</span><h3>CRO</h3><p>Data-backed conversion optimization to turn clicks into measurable revenue lifts.</p></div>
+   311	<div class="card"><span class="service-icon">📱</span><h3>SMM</h3><p>High-performing social campaigns designed for attention, engagement, and lead flow.</p></div>
+   312	<div class="card"><span class="service-icon">✨</span><h3>SMO</h3><p>Social profile optimization and trust-building strategy to improve audience quality.</p></div>
+   313	<div class="card"><span class="service-icon">🎯</span><h3>SEM</h3><p>Intent-focused paid search campaigns with transparent ROAS reporting every week.</p></div>
+   314	<div class="card"><span class="service-icon">🤖</span><h3>AEO</h3><p>Answer engine optimization so your brand appears in modern AI-driven discovery.</p></div>
+   315	<div class="card"><span class="service-icon">🌍</span><h3>GEO</h3><p>Geo-targeted growth campaigns adapted by region, language, and local buyer behavior.</p></div>
+   316	<div class="card"><span class="service-icon">📈</span><h3>Lead Generation</h3><p>Full-funnel systems that attract, qualify, and convert high-intent customers.</p></div>
+   317	<div class="card"><span class="service-icon">🛍️</span><h3>Shopify Dev</h3><p>Conversion-ready Shopify builds with speed, UX clarity, and retention-first features.</p></div>
+   318	<div class="card"><span class="service-icon">🧩</span><h3>WordPress Dev</h3><p>Flexible, SEO-first WordPress experiences tailored to your exact growth objectives.</p></div>
+   319	<div class="card"><span class="service-icon">🚀</span><h3>Ecommerce Dev</h3><p>Scalable ecommerce infrastructure that blends performance engineering with brand design.</p></div>
+   320	<div class="card"><span class="service-icon">💻</span><h3>Custom Web Dev</h3><p>Fast, secure, and modern custom web experiences crafted for conversion and scale.</p></div>
+   321	<div class="card"><span class="service-icon">✉️</span><h3>Email Marketing</h3><p>Lifecycle automation and persuasive email funnels that increase LTV and repeat sales.</p></div>
+   322	</div>
+   323	</div>
+   324	</section>
+   325	
+   326	<section id="faq">
+   327	<h2 class="section-title">Frequently Asked Questions</h2>
+   328	<div class="faq-wrap">
+   329	<div class="faq-item"><h3>How soon can we start?</h3><p>Most clients start within 3-5 business days after the strategy call and onboarding confirmation.</p></div>
+   330	<div class="faq-item"><h3>Do you work with small businesses or only large brands?</h3><p>We work with startups, D2C stores, SaaS companies, and established businesses as long as growth is a priority.</p></div>
+   331	<div class="faq-item"><h3>Will I get regular performance updates?</h3><p>Yes. You receive clear weekly updates plus monthly strategy reviews with ROI, lead quality, and next-step action plans.</p></div>
+   332	<div class="faq-item"><h3>What if I only need one service?</h3><p>No problem. You can start with one service (like SEO or Ads) and expand to a full growth stack later.</p></div>
+   333	</div>
+   334	</section>
+   335	
+   336	<section>
+   337	<h2 class="section-title">Case Studies</h2>
+   338	<div class="grid-3">
+   339	<div class="card"><div class="case-number">+312%</div><div class="case-label">Organic Sessions in 6 Months</div></div>
+   340	<div class="card"><div class="case-number">4.7x</div><div class="case-label">Average Paid Media ROAS</div></div>
+   341	<div class="card"><div class="case-number">540+</div><div class="case-label">Qualified Leads Per Quarter</div></div>
+   342	</div>
+   343	</section>
+   344	
+   345	<section id="reviews">
+   346	<h2 class="section-title">Client Reviews</h2>
+   347	<div class="reviews-grid">
+   348	<div class="testimonial"><div class="stars">★★★★★</div><p>“TECHNEST rebuilt our funnel and we saw high-quality leads almost immediately. Their communication and reporting are world-class.”</p><div class="reviewer">— Aarav, SaaS Founder</div></div>
+   349	<div class="testimonial"><div class="stars">★★★★★</div><p>“From ad strategy to landing page CRO, they handled everything. We scaled revenue while lowering CAC month after month.”</p><div class="reviewer">— Nisha, D2C Brand Owner</div></div>
+   350	<div class="testimonial"><div class="stars">★★★★★</div><p>“The team brings structure, speed, and real expertise. Our organic traffic and email conversion rates are at an all-time high.”</p><div class="reviewer">— Rohan, Ecommerce Director</div></div>
+   351	</div>
+   352	</section>
+   353	
+   354	<section id="pricing">
+   355	<h2 class="section-title">Pricing</h2>
+   356	<p style="text-align:center;color:#a8c0ec;margin-top:-44px;margin-bottom:34px;">Transparent monthly retainers in USD. Final quote depends on ad spend, scope, and market competition.</p>
+   357	<div class="grid-3">
+   358	<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#schedule-call">Choose Starter</a></div>
+   359	<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#schedule-call">Choose Growth</a></div>
+   360	<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#schedule-call">Choose Scale</a></div>
+   361	</div>
+   362	</section>
+   363	
+   364	<section>
+   365	<div class="conversion-strip">
+   366	<div>
+   367	<h3>Ready to turn traffic into predictable revenue?</h3>
+   368	<p>Book a free strategy call and get a custom 90-day growth roadmap.</p>
+   369	</div>
+   370	<a href="#schedule-call" class="btn" style="margin-top:0">Book Free Strategy Call</a>
+   371	</div>
+   372	</section>
+   373	
+   374	<section id="schedule-call">
+   375	<h2 class="section-title">Schedule Your Strategy Call</h2>
+   376	<div class="calendly-wrap">
+   377	<div class="calendly-inline-widget" data-url="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+   378	</div>
+   379	</section>
+   380	
+   381	<section id="contact">
+   382	<h2 class="section-title">Start Your Growth</h2>
+   383	<form action="https://formspree.io/f/mqedooql" method="POST">
+   384	<input type="text" name="name" placeholder="Full Name" required>
+   385	<input type="email" name="email" placeholder="Email" required>
+   386	<input type="text" name="phone" placeholder="Phone">
+   387	<input type="url" name="website" placeholder="Website">
+   388	<select name="service">
+   389	<option>Free Consultation</option>
+   390	<option>Free Audit</option>
+   391	<option>Start Working</option>
+   392	</select>
+   393	<textarea name="message" rows="5" placeholder="Tell us about your project"></textarea>
+   394	<button type="submit" class="btn">Submit</button>
+   395	</form>
+   396	</section>
+   397	
+   398	<footer>
+   399	<div><h4>TECHNEST</h4><p>AI Revenue Systems Agency</p></div>
+   400	<div><h4>Services</h4><p>SEO • CRO • Paid Media</p></div>
+   401	<div><h4>Industries</h4><p>SaaS • D2C • B2B</p></div>
+   402	<div><h4>Global</h4><p>Remote-first worldwide execution</p></div>
+   403	</footer>
+   404	
+   405	<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+   406	</body>
+   407	</html>

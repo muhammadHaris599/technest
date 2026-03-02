@@ -149,16 +149,39 @@ pointer-events:none;
 .case-number{font-size:72px;font-weight:900;color:var(--neon);text-shadow:0 0 50px rgba(0,240,255,.6);text-align:center}
 .case-label{text-align:center;color:var(--text);margin-top:6px}
 
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.reviews-slider{
+position:relative;
+max-width:1120px;
+margin:0 auto;
+}
+.reviews-viewport{overflow:hidden}
+.reviews-track{
+display:flex;
+transition:transform .5s ease;
+}
+.review-slide{
+min-width:100%;
+padding:0 4px;
+}
 .testimonial{
 background:linear-gradient(160deg,rgba(17,32,53,.93),rgba(7,14,26,.92));
 padding:34px;border-radius:22px;
 border:1px solid rgba(0,240,255,.25);
 box-shadow:0 0 30px rgba(0,240,255,.12);
+min-height:210px;
 }
 .stars{color:#ffd76b;letter-spacing:2px;margin-bottom:14px}
 .testimonial p{color:var(--text);font-size:15px}
 .reviewer{margin-top:14px;color:#9fc4ff;font-weight:700;font-size:14px}
+.reviews-controls{display:flex;justify-content:center;gap:12px;margin-top:22px}
+.slider-btn{
+height:42px;width:42px;border-radius:50%;
+border:1px solid rgba(0,240,255,.45);
+background:rgba(0,240,255,.11);
+color:#dfffff;font-size:22px;line-height:1;cursor:pointer;
+transition:.2s;
+}
+.slider-btn:hover{background:rgba(0,240,255,.26);transform:translateY(-2px)}
 
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .process-step{
@@ -184,26 +207,7 @@ box-shadow:0 0 20px rgba(0,240,255,.08);
 .faq-item h3{font-size:22px;color:#e8f6ff;margin-bottom:6px}
 .faq-item p{color:#a9bee4}
 
-.price-card{
-background:var(--card);
-padding:60px 34px;
-border-radius:24px;text-align:center;
-border:1px solid rgba(0,240,255,.3);
-box-shadow:0 0 36px rgba(0,240,255,.12);
-}
-.price-card.featured{box-shadow:0 0 90px rgba(0,240,255,.48);border-color:rgba(0,240,255,.8)}
-.price-card h3{font-size:28px}
-.plan-price{font-size:42px;font-weight:900;color:var(--accent);margin:10px 0 4px;text-shadow:0 0 24px rgba(0,240,255,.35)}
-.plan-cycle{color:#9cb4df;font-size:14px;margin-bottom:14px}
-.plan-features{list-style:none;text-align:left;margin:20px 0 24px;padding:0}
-.plan-features li{margin-bottom:8px;color:#bdd1f4;font-size:14px}
-.plan-features li::before{content:"✔ ";color:var(--accent);font-weight:700}
-.mini-cta{display:inline-block;padding:11px 24px;border-radius:999px;background:rgba(0,240,255,.12);border:1px solid rgba(0,240,255,.45);color:#dfffff;font-weight:700;transition:.25s}
-.mini-cta:hover{background:rgba(0,240,255,.24);transform:translateY(-2px)}
-
-form{
-background:var(--card);
-padding:56px;border-radius:24px;
+@@ -207,92 +230,104 @@ padding:56px;border-radius:24px;
 border:1px solid rgba(0,240,255,.3);
 box-shadow:0 0 50px rgba(0,240,255,.14);
 max-width:800px;margin:auto;
@@ -229,6 +233,18 @@ box-shadow:0 0 34px rgba(0,240,255,.16);
 .conversion-strip h3{font-size:28px;line-height:1.2}
 .conversion-strip p{color:#c9dbff}
 
+
+.calendly-wrap{
+max-width:1100px;
+margin:0 auto;
+padding:26px;
+border-radius:24px;
+background:linear-gradient(160deg,rgba(13,24,42,.96),rgba(7,13,24,.94));
+border:1px solid rgba(0,240,255,.3);
+box-shadow:0 0 40px rgba(0,240,255,.14);
+}
+.calendly-inline-widget{width:100%}
+
 footer{
 background:#07101c;padding:90px 8%;margin-top:120px;
 display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
@@ -239,11 +255,11 @@ footer p{color:#9ab0d9}
 footer h4{margin-bottom:14px;color:var(--neon)}
 
 @media(max-width:1100px){
-.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr 1fr}
+.grid-3,.stats,.process-grid,footer{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:768px){
-.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr}
+.grid-3,.stats,.process-grid,footer{grid-template-columns:1fr}
 .hero{padding-top:190px}
 nav{display:none}
 .section-box{padding:55px 24px}
@@ -262,7 +278,7 @@ form{padding:36px 20px}
 <a href="#reviews">Reviews</a>
 <a href="#faq">FAQ</a>
 <a href="#pricing">Pricing</a>
-<a href="#contact" class="cta">Free Strategy Call</a>
+<a href="#schedule-call" class="cta">Free Strategy Call</a>
 </nav>
 </header>
 
@@ -270,7 +286,7 @@ form{padding:36px 20px}
 <h1>We Build Revenue Machines</h1>
 <p>AI-powered growth systems engineered for predictable scale.</p>
 <div class="revenue">$2M+ Revenue Generated</div>
-<a href="#contact" class="btn">Start Scaling Now</a>
+<a href="#schedule-call" class="btn">Start Scaling Now</a>
 
 <div class="stats">
 <div class="stat"><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
@@ -296,17 +312,7 @@ form{padding:36px 20px}
 <div class="grid-3">
 <div class="card"><span class="service-icon">🔍</span><h3>SEO</h3><p>Technical SEO + topical authority architecture to rank and compound organic traffic.</p></div>
 <div class="card"><span class="service-icon">🧪</span><h3>CRO</h3><p>Data-backed conversion optimization to turn clicks into measurable revenue lifts.</p></div>
-<div class="card"><span class="service-icon">📱</span><h3>SMM</h3><p>High-performing social campaigns designed for attention, engagement, and lead flow.</p></div>
-<div class="card"><span class="service-icon">✨</span><h3>SMO</h3><p>Social profile optimization and trust-building strategy to improve audience quality.</p></div>
-<div class="card"><span class="service-icon">🎯</span><h3>SEM</h3><p>Intent-focused paid search campaigns with transparent ROAS reporting every week.</p></div>
-<div class="card"><span class="service-icon">🤖</span><h3>AEO</h3><p>Answer engine optimization so your brand appears in modern AI-driven discovery.</p></div>
-<div class="card"><span class="service-icon">🌍</span><h3>GEO</h3><p>Geo-targeted growth campaigns adapted by region, language, and local buyer behavior.</p></div>
-<div class="card"><span class="service-icon">📈</span><h3>Lead Generation</h3><p>Full-funnel systems that attract, qualify, and convert high-intent customers.</p></div>
-<div class="card"><span class="service-icon">🛍️</span><h3>Shopify Dev</h3><p>Conversion-ready Shopify builds with speed, UX clarity, and retention-first features.</p></div>
-<div class="card"><span class="service-icon">🧩</span><h3>WordPress Dev</h3><p>Flexible, SEO-first WordPress experiences tailored to your exact growth objectives.</p></div>
-<div class="card"><span class="service-icon">🚀</span><h3>Ecommerce Dev</h3><p>Scalable ecommerce infrastructure that blends performance engineering with brand design.</p></div>
-<div class="card"><span class="service-icon">💻</span><h3>Custom Web Dev</h3><p>Fast, secure, and modern custom web experiences crafted for conversion and scale.</p></div>
-<div class="card"><span class="service-icon">✉️</span><h3>Email Marketing</h3><p>Lifecycle automation and persuasive email funnels that increase LTV and repeat sales.</p></div>
+@@ -310,78 +345,112 @@ form{padding:36px 20px}
 </div>
 </div>
 </section>
@@ -332,10 +338,28 @@ form{padding:36px 20px}
 
 <section id="reviews">
 <h2 class="section-title">Client Reviews</h2>
-<div class="reviews-grid">
-<div class="testimonial"><div class="stars">★★★★★</div><p>“TECHNEST rebuilt our funnel and we saw high-quality leads almost immediately. Their communication and reporting are world-class.”</p><div class="reviewer">— Aarav, SaaS Founder</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div><p>“From ad strategy to landing page CRO, they handled everything. We scaled revenue while lowering CAC month after month.”</p><div class="reviewer">— Nisha, D2C Brand Owner</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div><p>“The team brings structure, speed, and real expertise. Our organic traffic and email conversion rates are at an all-time high.”</p><div class="reviewer">— Rohan, Ecommerce Director</div></div>
+<div class="reviews-slider" aria-label="Client review slider">
+<div class="reviews-viewport">
+<div class="reviews-track" id="reviews-track">
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“TECHNEST rebuilt our funnel and we saw high-quality leads almost immediately. Their communication and reporting are world-class.”</p><div class="reviewer">— Aarav, SaaS Founder</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“From ad strategy to landing page CRO, they handled everything. We scaled revenue while lowering CAC month after month.”</p><div class="reviewer">— Nisha, D2C Brand Owner</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“The team brings structure, speed, and real expertise. Our organic traffic and email conversion rates are at an all-time high.”</p><div class="reviewer">— Rohan, Ecommerce Director</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“In just 8 weeks, our demo bookings doubled and the lead quality improved massively.”</p><div class="reviewer">— Hassan, B2B Consultant</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Clear communication, fast execution, and measurable results. Exactly what we needed.”</p><div class="reviewer">— Mehak, Founder at GlowCart</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Their SEO and content engine helped us rank for terms we never thought possible.”</p><div class="reviewer">— Bilal, SaaS Marketing Lead</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Our Shopify store speed and conversion rate both went up after their optimization sprint.”</p><div class="reviewer">— Hira, Ecommerce Owner</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“The ad reporting is super transparent. We know exactly where every dollar is going.”</p><div class="reviewer">— Danish, Performance Manager</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Amazing strategy + implementation combo. Revenue is up and CAC is down.”</p><div class="reviewer">— Zainab, D2C Co-Founder</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“They built a complete lead-gen funnel for us and it started producing in the first month.”</p><div class="reviewer">— Faraz, Real Estate Team Lead</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Best agency experience so far. They treat your KPIs like their own goals.”</p><div class="reviewer">— Saba, Startup Founder</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“From website revamp to paid scaling, everything felt organized and high quality.”</p><div class="reviewer">— Imran, Education Brand Owner</div></div></div>
+<div class="review-slide"><div class="testimonial"><div class="stars">★★★★★</div><p>“Our email automation now recovers sales daily. Big win for retention.”</p><div class="reviewer">— Sana, CRM Lead</div></div></div>
+</div>
+</div>
+<div class="reviews-controls">
+<button class="slider-btn" type="button" id="reviews-prev" aria-label="Previous review">‹</button>
+<button class="slider-btn" type="button" id="reviews-next" aria-label="Next review">›</button>
+</div>
 </div>
 </section>
 
@@ -343,9 +367,9 @@ form{padding:36px 20px}
 <h2 class="section-title">Pricing</h2>
 <p style="text-align:center;color:#a8c0ec;margin-top:-44px;margin-bottom:34px;">Transparent monthly retainers in USD. Final quote depends on ad spend, scope, and market competition.</p>
 <div class="grid-3">
-<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#contact">Choose Starter</a></div>
-<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#contact">Choose Growth</a></div>
-<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#contact">Choose Scale</a></div>
+<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#schedule-call">Choose Starter</a></div>
+<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#schedule-call">Choose Growth</a></div>
+<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#schedule-call">Choose Scale</a></div>
 </div>
 </section>
 
@@ -355,25 +379,15 @@ form{padding:36px 20px}
 <h3>Ready to turn traffic into predictable revenue?</h3>
 <p>Book a free strategy call and get a custom 90-day growth roadmap.</p>
 </div>
-<a href="#contact" class="btn" style="margin-top:0">Book Free Strategy Call</a>
+<a href="#schedule-call" class="btn" style="margin-top:0">Book Free Strategy Call</a>
 </div>
 </section>
 
-<section id="contact">
-<h2 class="section-title">Start Your Growth</h2>
-<form action="https://formspree.io/f/mqedooql" method="POST">
-<input type="text" name="name" placeholder="Full Name" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="text" name="phone" placeholder="Phone">
-<input type="url" name="website" placeholder="Website">
-<select name="service">
-<option>Free Consultation</option>
-<option>Free Audit</option>
-<option>Start Working</option>
-</select>
-<textarea name="message" rows="5" placeholder="Tell us about your project"></textarea>
-<button type="submit" class="btn">Submit</button>
-</form>
+<section id="schedule-call">
+<h2 class="section-title">Schedule Your Strategy Call</h2>
+<div class="calendly-wrap">
+<div class="calendly-inline-widget" data-url="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+</div>
 </section>
 
 <footer>
@@ -383,5 +397,31 @@ form{padding:36px 20px}
 <div><h4>Global</h4><p>Remote-first worldwide execution</p></div>
 </footer>
 
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+const reviewsTrack = document.getElementById('reviews-track');
+const reviewSlides = document.querySelectorAll('.review-slide');
+const prevReviewBtn = document.getElementById('reviews-prev');
+const nextReviewBtn = document.getElementById('reviews-next');
+let reviewIndex = 0;
+
+function renderReviewSlider(){
+reviewsTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
+}
+
+function nextReview(){
+reviewIndex = (reviewIndex + 1) % reviewSlides.length;
+renderReviewSlider();
+}
+
+function previousReview(){
+reviewIndex = (reviewIndex - 1 + reviewSlides.length) % reviewSlides.length;
+renderReviewSlider();
+}
+
+prevReviewBtn.addEventListener('click', previousReview);
+nextReviewBtn.addEventListener('click', nextReview);
+setInterval(nextReview, 5000);
+</script>
 </body>
 </html>

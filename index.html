@@ -213,8 +213,64 @@ max-width:800px;margin:auto;
 
 form input,form textarea,form select{
 width:100%;padding:14px 16px;margin-bottom:16px;
-background:#07101c;border:1px solid rgba(0,240,255,.35);
-color:#fff;border-radius:10px;font-weight: 600;font-size: 16px;
+background:#f7fbff;border:1px solid rgba(78,123,255,.35);
+color:#0f2038;border-radius:10px;font-weight: 600;font-size: 16px;
+}
+
+
+.services-dropdown{
+margin:2px 0 16px;
+border:1px solid rgba(78,123,255,.35);
+border-radius:12px;
+background:#f7fbff;
+overflow:hidden;
+}
+.services-dropdown summary{
+list-style:none;
+cursor:pointer;
+padding:14px 16px;
+font-weight:700;
+color:#1d3458;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.services-dropdown summary::after{
+content:"▾";
+font-size:14px;
+color:#4e7bff;
+transition:transform .2s ease;
+}
+.services-dropdown[open] summary::after{transform:rotate(180deg)}
+.services-dropdown summary::-webkit-details-marker{display:none}
+.services-dropdown[open] summary{border-bottom:1px solid rgba(78,123,255,.25)}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:10px;
+padding:14px 16px 16px;
+}
+.service-option{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:14px;
+color:#2f476b;
+font-weight:600;
+background:#ffffff;
+border:1px solid rgba(78,123,255,.22);
+border-radius:10px;
+padding:10px 12px;
+min-height:42px;
+line-height:1.35;
+white-space:normal;
+word-break:break-word;
+}
+.service-option input{
+width:auto;
+margin:0;
+padding:0;
+accent-color:#0a6bff;
 }
 
 
@@ -223,13 +279,13 @@ margin:20px auto 0;
 max-width:1100px;
 padding:28px 26px;
 border-radius:22px;
-background:linear-gradient(90deg,rgba(0,102,255,.25),rgba(0,240,255,.18));
+background:linear-gradient(90deg,rgba(78,123,255,.18),rgba(0,240,255,.10));
 border:1px solid rgba(0,240,255,.35);
 display:flex;justify-content:space-between;align-items:center;gap:20px;
 box-shadow:0 0 34px rgba(0,240,255,.16);
 }
 .conversion-strip h3{font-size:28px;line-height:1.2}
-.conversion-strip p{color:#c9dbff}
+.conversion-strip p{color:#3d5881}
 
 .contact-layout{
 max-width:1200px;
@@ -244,7 +300,7 @@ align-items:start;
 .calendly-wrap{
 padding:22px;
 border-radius:24px;
-background:linear-gradient(165deg,rgba(14,26,46,.95),rgba(7,14,26,.93));
+background:linear-gradient(165deg,rgba(255,255,255,.97),rgba(240,247,255,.96));
 border:1px solid rgba(0,240,255,.25);
 box-shadow:0 0 24px rgba(0,240,255,.10);
 }
@@ -255,7 +311,7 @@ margin:0;
 }
 
 .contact-note{
-color:#b8cdf6;
+color:#4e6488;
 font-size:14px;
 margin-bottom:14px;
 }
@@ -382,6 +438,16 @@ form{padding:36px 20px}
 </div>
 </section>
 
+<section>
+<div class="conversion-strip">
+<div>
+<h3>Ready to turn traffic into predictable revenue?</h3>
+<p>Book a free strategy call and get a custom 90-day growth roadmap.</p>
+</div>
+<a href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" class="btn" style="margin-top:0" target="_blank" rel="noopener noreferrer">Book Free Strategy Call</a>
+</div>
+</section>
+
 <section id="contact">
 <h2 class="section-title">Start Your Growth</h2>
 <div class="contact-layout">
@@ -392,11 +458,24 @@ form{padding:36px 20px}
 <input type="email" name="email" placeholder="Email" required>
 <input type="text" name="phone" placeholder="Phone">
 <input type="url" name="website" placeholder="Website">
-<select name="service">
-<option>Free Consultation</option>
-<option>Free Audit</option>
-<option>Start Working</option>
-</select>
+<details class="services-dropdown">
+<summary>Which services do you want? (Select one or more)</summary>
+<div class="services-grid">
+<label class="service-option"><input type="checkbox" name="services[]" value="SEO"> SEO</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="CRO"> CRO</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="SMM"> SMM</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="SMO"> SMO</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="SEM"> SEM</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="AEO"> AEO</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="GEO"> GEO</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="Lead Generation"> Lead Generation</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="Shopify Development"> Shopify Dev</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="WordPress Development"> WordPress Dev</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="Ecommerce Development"> Ecommerce Dev</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="Custom Web Development"> Custom Web Dev</label>
+<label class="service-option"><input type="checkbox" name="services[]" value="Email Marketing"> Email Marketing</label>
+</div>
+</details>
 <textarea name="message" rows="5" placeholder="Tell us about your project"></textarea>
 <button type="submit" class="btn">Submit</button>
 </form>

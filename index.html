@@ -14,7 +14,6 @@
 --text:#d8e6ff;
 --muted:#8ea8d8;
 --neon:#00f0ff;
---neon2:#0066ff;
 --neon2:#4e7bff;
 --accent:#7df8ff;
 }
@@ -23,7 +22,6 @@
 html{scroll-behavior:smooth}
 body{
 font-family:'Inter',sans-serif;
-background:var(--bg);
 background:radial-gradient(circle at 10% 10%,#0b1c34 0%,var(--bg) 35%,#01040a 100%);
 color:#fff;
 line-height:1.7;
@@ -34,36 +32,29 @@ a{text-decoration:none}
 
 header{
 position:fixed;top:0;width:100%;
-padding:25px 8%;
 padding:20px 8%;
 display:flex;justify-content:space-between;align-items:center;
-background:rgba(2,5,10,0.9);
-backdrop-filter:blur(12px);
 background:rgba(2,5,10,0.72);
 backdrop-filter:blur(14px);
 z-index:1000;
 border-bottom:1px solid rgba(0,240,255,0.15);
 }
 
-.logo{font-size:28px;font-weight:900;}
 .logo{font-size:28px;font-weight:900;letter-spacing:.3px}
 .logo span{
 background:linear-gradient(90deg,var(--neon2),var(--neon));
 -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
-nav a{margin-left:30px;color:#cbd6ff;font-weight:600}
 nav a{margin-left:30px;color:#cbd6ff;font-weight:600;transition:.25s}
 nav a:hover{color:#fff;text-shadow:0 0 20px rgba(0,240,255,.8)}
 .cta{
 padding:12px 28px;border-radius:40px;
 background:linear-gradient(90deg,var(--neon2),var(--neon));
-box-shadow:0 0 35px var(--neon);
 box-shadow:0 0 35px rgba(0,240,255,.5);
 color:#001029;
 }
 
-section{padding:180px 8%;max-width:1500px;margin:auto}
 section{padding:150px 8% 100px;max-width:1450px;margin:auto}
 .section-title{
 font-size:clamp(36px,6vw,58px);
@@ -74,50 +65,37 @@ text-shadow:0 0 50px rgba(0,240,255,.45);
 
 /* HERO */
 .hero{
-padding-top:260px;text-align:center;
 padding-top:240px;text-align:center;
 background:
-linear-gradient(rgba(2,5,10,0.93), rgba(2,5,10,0.98)),
 linear-gradient(rgba(2,5,10,0.86), rgba(2,5,10,0.96)),
 url("hero-bg.png") center/cover no-repeat;
 border-radius:0 0 40px 40px;
 }
 
 .hero h1{
-font-size:84px;font-weight:900;line-height:1.05;
-text-shadow:0 0 80px var(--neon);
 font-size:clamp(44px,9vw,84px);
 font-weight:900;line-height:1.03;
 text-shadow:0 0 80px rgba(0,240,255,.42);
 }
 
-.hero p{margin-top:25px;font-size:26px;color:#9bb4ff;}
-.revenue{margin-top:20px;font-size:30px;color:var(--neon);font-weight:800}
 .hero p{margin-top:25px;font-size:clamp(18px,2.8vw,26px);color:#aac2f9;}
 .revenue{margin-top:16px;font-size:clamp(20px,3vw,30px);color:var(--accent);font-weight:800}
 
 .btn{
-display:inline-block;margin-top:50px;
-padding:22px 70px;border-radius:50px;
-font-weight:800;font-size:18px;
 display:inline-block;margin-top:40px;
 padding:18px 52px;border-radius:50px;
 font-weight:800;font-size:17px;
 background:linear-gradient(90deg,var(--neon2),var(--neon));
-box-shadow:0 0 60px var(--neon);
-transition:0.3s;
 box-shadow:0 0 44px rgba(0,240,255,.45);
 transition:.3s;
 color:#001029;
 }
-.btn:hover{transform:translateY(-8px);box-shadow:0 0 90px var(--neon)}
 .btn:hover{transform:translateY(-6px);box-shadow:0 0 90px rgba(0,240,255,.65)}
 
 /* STATS */
 .stats{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:60px;text-align:center;margin-top:100px;
 gap:24px;text-align:center;margin-top:90px;
 }
 .stat{
@@ -128,21 +106,13 @@ border-radius:20px;
 box-shadow:0 0 30px rgba(0,240,255,.1);
 }
 .stat-number{
-font-size:80px;font-weight:900;color:var(--neon);
-text-shadow:0 0 40px var(--neon);
 font-size:58px;font-weight:900;color:var(--neon);
 text-shadow:0 0 30px rgba(0,240,255,.65);
 }
-.stat-label{margin-top:10px;font-size:18px;color:#aaa}
 .stat-label{margin-top:5px;font-size:16px;color:#afc0e9}
 
 /* SECTION BOX */
 .section-box{
-background:var(--bg2);
-padding:160px 80px;
-border-radius:40px;
-border:1px solid var(--neon);
-box-shadow:0 0 80px rgba(0,240,255,0.2);
 background:linear-gradient(180deg,rgba(8,17,31,.92),rgba(5,11,22,.95));
 padding:90px 50px;
 border-radius:36px;
@@ -150,20 +120,9 @@ border:1px solid rgba(0,240,255,.35);
 box-shadow:0 0 80px rgba(0,240,255,0.15);
 }
 
-.grid-3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:60px;
-}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 
 .card{
-background:var(--card);
-padding:70px 50px;
-border-radius:30px;
-border:1px solid var(--neon);
-transition:0.3s;
-box-shadow:0 0 30px rgba(0,240,255,0.2);
 position:relative;
 background:linear-gradient(160deg,rgba(17,32,53,.95),rgba(8,16,30,.9));
 padding:34px 28px;
@@ -173,10 +132,6 @@ transition:.28s;
 box-shadow:0 0 26px rgba(0,240,255,.1);
 overflow:hidden;
 }
-
-.card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 70px var(--neon);
 .card::before{
 content:"";
 position:absolute;
@@ -186,40 +141,21 @@ opacity:.9;
 pointer-events:none;
 }
 
-.card h3{
-font-size:28px;margin-bottom:20px;color:var(--neon);
-}
 .card:hover{transform:translateY(-8px);border-color:rgba(0,240,255,.75);box-shadow:0 0 46px rgba(0,240,255,.34)}
 .service-icon{font-size:22px;display:inline-block;margin-bottom:10px}
 .card h3{font-size:24px;margin-bottom:8px;color:#e9f7ff}
 .card p{color:var(--muted);font-size:15px;line-height:1.55}
 
-.case-number{
-font-size:90px;font-weight:900;color:var(--neon);
-text-shadow:0 0 60px var(--neon);
-text-align:center;margin-bottom:20px;
-}
 .case-number{font-size:72px;font-weight:900;color:var(--neon);text-shadow:0 0 50px rgba(0,240,255,.6);text-align:center}
 .case-label{text-align:center;color:var(--text);margin-top:6px}
 
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testimonial{
-background:var(--card);
-padding:60px;border-radius:30px;
-border:1px solid var(--neon);
-box-shadow:0 0 50px rgba(0,240,255,0.2);
 background:linear-gradient(160deg,rgba(17,32,53,.93),rgba(7,14,26,.92));
 padding:34px;border-radius:22px;
 border:1px solid rgba(0,240,255,.25);
 box-shadow:0 0 30px rgba(0,240,255,.12);
 }
-
-.price-card{
-background:var(--card);
-padding:100px 50px;
-border-radius:30px;text-align:center;
-border:1px solid var(--neon);
-box-shadow:0 0 60px rgba(0,240,255,0.2);
 .stars{color:#ffd76b;letter-spacing:2px;margin-bottom:14px}
 .testimonial p{color:var(--text);font-size:15px}
 .reviewer{margin-top:14px;color:#9fc4ff;font-weight:700;font-size:14px}
@@ -232,8 +168,6 @@ border-radius:20px;
 padding:30px 24px;
 box-shadow:0 0 24px rgba(0,240,255,.12);
 }
-.price-card.featured{
-box-shadow:0 0 120px var(--neon);
 .step-number{font-size:14px;color:var(--accent);font-weight:800;letter-spacing:.9px}
 .process-step h3{font-size:24px;margin:8px 0 10px;color:#eaf8ff}
 .process-step p{color:var(--muted);font-size:15px;line-height:1.6}
@@ -250,11 +184,8 @@ box-shadow:0 0 20px rgba(0,240,255,.08);
 .faq-item h3{font-size:22px;color:#e8f6ff;margin-bottom:6px}
 .faq-item p{color:#a9bee4}
 
-.faq{
 .price-card{
 background:var(--card);
-padding:30px;margin-bottom:20px;border-radius:20px;
-border:1px solid var(--neon);
 padding:60px 34px;
 border-radius:24px;text-align:center;
 border:1px solid rgba(0,240,255,.3);
@@ -272,9 +203,6 @@ box-shadow:0 0 36px rgba(0,240,255,.12);
 
 form{
 background:var(--card);
-padding:70px;border-radius:30px;
-border:1px solid var(--neon);
-box-shadow:0 0 60px rgba(0,240,255,0.2);
 padding:56px;border-radius:24px;
 border:1px solid rgba(0,240,255,.3);
 box-shadow:0 0 50px rgba(0,240,255,.14);
@@ -282,8 +210,6 @@ max-width:800px;margin:auto;
 }
 
 form input,form textarea,form select{
-width:100%;padding:15px;margin-bottom:20px;
-background:#07101c;border:1px solid var(--neon);
 width:100%;padding:14px 16px;margin-bottom:16px;
 background:#07101c;border:1px solid rgba(0,240,255,.35);
 color:#fff;border-radius:10px;
@@ -304,27 +230,19 @@ box-shadow:0 0 34px rgba(0,240,255,.16);
 .conversion-strip p{color:#c9dbff}
 
 footer{
-background:#07101c;padding:120px 8%;margin-top:150px;
 background:#07101c;padding:90px 8%;margin-top:120px;
 display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-gap:50px;border-top:1px solid var(--neon);
-box-shadow:0 -10px 60px rgba(0,240,255,0.1);
 gap:40px;border-top:1px solid rgba(0,240,255,.26);
 box-shadow:0 -10px 50px rgba(0,240,255,0.08);
 }
-
-footer h4{margin-bottom:20px;color:var(--neon)}
 footer p{color:#9ab0d9}
 footer h4{margin-bottom:14px;color:var(--neon)}
 
 @media(max-width:1100px){
-.grid-3,.stats,footer{grid-template-columns:1fr 1fr}
 .grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:768px){
-.grid-3,.stats,footer{grid-template-columns:1fr}
-.hero h1{font-size:48px}
 .grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr}
 .hero{padding-top:190px}
 nav{display:none}
@@ -336,7 +254,6 @@ form{padding:36px 20px}
 </head>
 
 <body>
-
 <header>
 <div class="logo">TECH<span>NEST</span></div>
 <nav>
@@ -356,10 +273,6 @@ form{padding:36px 20px}
 <a href="#contact" class="btn">Start Scaling Now</a>
 
 <div class="stats">
-<div><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
-<div><div class="stat-number">4.7x</div><div class="stat-label">ROAS</div></div>
-<div><div class="stat-number">540+</div><div class="stat-label">Qualified Leads</div></div>
-<div><div class="stat-number">8+</div><div class="stat-label">Industries</div></div>
 <div class="stat"><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
 <div class="stat"><div class="stat-number">4.7x</div><div class="stat-label">ROAS</div></div>
 <div class="stat"><div class="stat-number">540+</div><div class="stat-label">Qualified Leads</div></div>
@@ -379,25 +292,8 @@ form{padding:36px 20px}
 
 <section id="services">
 <div class="section-box">
-<h2 style="font-size:60px;margin-bottom:90px;text-align:center;text-shadow:0 0 60px var(--neon);">
-Full Performance Stack
-</h2>
-
 <h2 class="section-title">Full Performance Stack</h2>
 <div class="grid-3">
-<div class="card"><h3>SEO</h3></div>
-<div class="card"><h3>CRO</h3></div>
-<div class="card"><h3>SMM</h3></div>
-<div class="card"><h3>SMO</h3></div>
-<div class="card"><h3>SEM</h3></div>
-<div class="card"><h3>AEO</h3></div>
-<div class="card"><h3>GEO</h3></div>
-<div class="card"><h3>Lead Generation</h3></div>
-<div class="card"><h3>Shopify Dev</h3></div>
-<div class="card"><h3>WordPress Dev</h3></div>
-<div class="card"><h3>Ecommerce Dev</h3></div>
-<div class="card"><h3>Custom Web Dev</h3></div>
-<div class="card"><h3>Email Marketing</h3></div>
 <div class="card"><span class="service-icon">🔍</span><h3>SEO</h3><p>Technical SEO + topical authority architecture to rank and compound organic traffic.</p></div>
 <div class="card"><span class="service-icon">🧪</span><h3>CRO</h3><p>Data-backed conversion optimization to turn clicks into measurable revenue lifts.</p></div>
 <div class="card"><span class="service-icon">📱</span><h3>SMM</h3><p>High-performing social campaigns designed for attention, engagement, and lead flow.</p></div>
@@ -426,12 +322,8 @@ Full Performance Stack
 </section>
 
 <section>
-<h2 style="font-size:60px;text-align:center;margin-bottom:80px;text-shadow:0 0 60px var(--neon);"> Studies</h2>
 <h2 class="section-title">Case Studies</h2>
 <div class="grid-3">
-<div class="card"><div class="case-number">+312%</div></div>
-<div class="card"><div class="case-number">4.7x</div></div>
-<div class="card"><div class="case-number">540+</div></div>
 <div class="card"><div class="case-number">+312%</div><div class="case-label">Organic Sessions in 6 Months</div></div>
 <div class="card"><div class="case-number">4.7x</div><div class="case-label">Average Paid Media ROAS</div></div>
 <div class="card"><div class="case-number">540+</div><div class="case-label">Qualified Leads Per Quarter</div></div>
@@ -448,13 +340,9 @@ Full Performance Stack
 </section>
 
 <section id="pricing">
-<h2 style="font-size:60px;text-align:center;margin-bottom:80px;text-shadow:0 0 60px var(--neon);">Pricing</h2>
 <h2 class="section-title">Pricing</h2>
 <p style="text-align:center;color:#a8c0ec;margin-top:-44px;margin-bottom:34px;">Transparent monthly retainers in USD. Final quote depends on ad spend, scope, and market competition.</p>
 <div class="grid-3">
-<div class="price-card"><h3>Starter</h3></div>
-<div class="price-card featured"><h3>Growth</h3></div>
-<div class="price-card"><h3>Scale</h3></div>
 <div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#contact">Choose Starter</a></div>
 <div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#contact">Choose Growth</a></div>
 <div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#contact">Choose Scale</a></div>
@@ -472,7 +360,6 @@ Full Performance Stack
 </section>
 
 <section id="contact">
-<h2 style="font-size:60px;text-align:center;margin-bottom:80px;text-shadow:0 0 60px var(--neon);">Start Your Growth</h2>
 <h2 class="section-title">Start Your Growth</h2>
 <form action="https://formspree.io/f/mqedooql" method="POST">
 <input type="text" name="name" placeholder="Full Name" required>
@@ -491,9 +378,6 @@ Full Performance Stack
 
 <footer>
 <div><h4>TECHNEST</h4><p>AI Revenue Systems Agency</p></div>
-<div><h4>Services</h4></div>
-<div><h4>Industries</h4></div>
-<div><h4>Global</h4></div>
 <div><h4>Services</h4><p>SEO • CRO • Paid Media</p></div>
 <div><h4>Industries</h4><p>SaaS • D2C • B2B</p></div>
 <div><h4>Global</h4><p>Remote-first worldwide execution</p></div>

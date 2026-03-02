@@ -229,14 +229,33 @@ box-shadow:0 0 34px rgba(0,240,255,.16);
 .conversion-strip h3{font-size:28px;line-height:1.2}
 .conversion-strip p{color:#c9dbff}
 
+.contact-layout{
+max-width:1200px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+align-items:start;
+}
+
+.contact-form-card,
 .calendly-wrap{
-max-width:900px;
-margin:36px auto 0;
-padding:20px;
+padding:22px;
 border-radius:24px;
 background:linear-gradient(165deg,rgba(14,26,46,.95),rgba(7,14,26,.93));
 border:1px solid rgba(0,240,255,.25);
-box-shadow:0 0 20px rgba(0,240,255,.08);
+box-shadow:0 0 24px rgba(0,240,255,.10);
+}
+
+.contact-layout form{
+max-width:none;
+margin:0;
+}
+
+.contact-note{
+color:#b8cdf6;
+font-size:14px;
+margin-bottom:14px;
 }
 
 footer{
@@ -250,15 +269,17 @@ footer h4{margin-bottom:14px;color:var(--neon)}
 
 @media(max-width:1100px){
 .grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr 1fr}
+.contact-layout{grid-template-columns:1fr}
 }
 
 @media(max-width:768px){
-.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr}
+.grid-3,.stats,.reviews-grid,.process-grid,footer,.contact-layout{grid-template-columns:1fr}
 .hero{padding-top:190px}
 nav{display:none}
 .section-box{padding:55px 24px}
 form{padding:36px 20px}
 .conversion-strip{flex-direction:column;text-align:center}
+.contact-form-card,.calendly-wrap{padding:14px}
 }
 </style>
 </head>
@@ -306,7 +327,7 @@ form{padding:36px 20px}
 <div class="grid-3">
 <div class="card"><span class="service-icon">🔍</span><h3>SEO</h3><p>Technical SEO + topical authority architecture to rank and compound organic traffic.</p></div>
 <div class="card"><span class="service-icon">🧪</span><h3>CRO</h3><p>Data-backed conversion optimization to turn clicks into measurable revenue lifts.</p></div>
-@@ -321,67 +331,73 @@ form{padding:36px 20px}
+@@ -321,67 +352,79 @@ form{padding:36px 20px}
 </div>
 </section>
 
@@ -350,6 +371,9 @@ form{padding:36px 20px}
 
 <section id="contact">
 <h2 class="section-title">Start Your Growth</h2>
+<div class="contact-layout">
+<div class="contact-form-card">
+<p class="contact-note">Share your details and goals. Our team will contact you with a custom growth plan.</p>
 <form action="https://formspree.io/f/mqedooql" method="POST">
 <input type="text" name="name" placeholder="Full Name" required>
 <input type="email" name="email" placeholder="Email" required>
@@ -363,11 +387,14 @@ form{padding:36px 20px}
 <textarea name="message" rows="5" placeholder="Tell us about your project"></textarea>
 <button type="submit" class="btn">Submit</button>
 </form>
+</div>
 <div class="calendly-wrap">
+<p class="contact-note">Prefer a direct call? Pick your slot instantly on Calendly.</p>
 <!-- Calendly inline widget begin -->
 <div class="calendly-inline-widget" data-url="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Calendly inline widget end -->
+</div>
 </div>
 </section>
 

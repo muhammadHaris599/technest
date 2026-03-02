@@ -34,20 +34,21 @@ header{
 position:fixed;top:0;width:100%;
 padding:20px 8%;
 display:flex;justify-content:space-between;align-items:center;
-background:rgba(2,5,10,0.72);
+background:rgba(255,255,255,0.88);
 backdrop-filter:blur(14px);
 z-index:1000;
-border-bottom:1px solid rgba(0,240,255,0.15);
+border-bottom:1px solid rgba(78,123,255,.2);
 }
 
-.logo{font-size:28px;font-weight:900;letter-spacing:.3px}
+.logo{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:900;letter-spacing:.3px;color:#0f2038}
+.logo img{width:44px;height:44px;object-fit:contain;border-radius:12px;box-shadow:0 6px 20px rgba(78,123,255,.22)}
 .logo span{
 background:linear-gradient(90deg,var(--neon2),var(--neon));
 -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
-nav a{margin-left:30px;color:#cbd6ff;font-weight:600;transition:.25s}
-nav a:hover{color:#fff;text-shadow:0 0 20px rgba(0,240,255,.8)}
+nav a{margin-left:30px;color:#2f476b;font-weight:600;transition:.25s}
+nav a:hover{color:#0f2038;text-shadow:0 0 20px rgba(78,123,255,.25)}
 .cta{
 padding:12px 28px;border-radius:40px;
 background:linear-gradient(90deg,var(--neon2),var(--neon));
@@ -286,7 +287,7 @@ form{padding:36px 20px}
 
 <body>
 <header>
-<div class="logo">TECH<span>NEST</span></div>
+<div class="logo"><img src="logo-technest.png" alt="Technest logo"><div>TECH<span>NEST</span></div></div>
 <nav>
 <a href="#services">Services</a>
 <a href="#process">Process</a>

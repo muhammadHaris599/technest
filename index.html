@@ -229,6 +229,18 @@ box-shadow:0 0 34px rgba(0,240,255,.16);
 .conversion-strip h3{font-size:28px;line-height:1.2}
 .conversion-strip p{color:#c9dbff}
 
+
+.calendly-wrap{
+max-width:1100px;
+margin:0 auto;
+padding:26px;
+border-radius:24px;
+background:linear-gradient(160deg,rgba(13,24,42,.96),rgba(7,13,24,.94));
+border:1px solid rgba(0,240,255,.3);
+box-shadow:0 0 40px rgba(0,240,255,.14);
+}
+.calendly-inline-widget{width:100%}
+
 footer{
 background:#07101c;padding:90px 8%;margin-top:120px;
 display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
@@ -262,7 +274,7 @@ form{padding:36px 20px}
 <a href="#reviews">Reviews</a>
 <a href="#faq">FAQ</a>
 <a href="#pricing">Pricing</a>
-<a href="#contact" class="cta">Free Strategy Call</a>
+<a href="#schedule-call" class="cta">Free Strategy Call</a>
 </nav>
 </header>
 
@@ -270,7 +282,7 @@ form{padding:36px 20px}
 <h1>We Build Revenue Machines</h1>
 <p>AI-powered growth systems engineered for predictable scale.</p>
 <div class="revenue">$2M+ Revenue Generated</div>
-<a href="#contact" class="btn">Start Scaling Now</a>
+<a href="#schedule-call" class="btn">Start Scaling Now</a>
 
 <div class="stats">
 <div class="stat"><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
@@ -343,9 +355,9 @@ form{padding:36px 20px}
 <h2 class="section-title">Pricing</h2>
 <p style="text-align:center;color:#a8c0ec;margin-top:-44px;margin-bottom:34px;">Transparent monthly retainers in USD. Final quote depends on ad spend, scope, and market competition.</p>
 <div class="grid-3">
-<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#contact">Choose Starter</a></div>
-<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#contact">Choose Growth</a></div>
-<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#contact">Choose Scale</a></div>
+<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="#schedule-call">Choose Starter</a></div>
+<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="#schedule-call">Choose Growth</a></div>
+<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="#schedule-call">Choose Scale</a></div>
 </div>
 </section>
 
@@ -355,7 +367,14 @@ form{padding:36px 20px}
 <h3>Ready to turn traffic into predictable revenue?</h3>
 <p>Book a free strategy call and get a custom 90-day growth roadmap.</p>
 </div>
-<a href="#contact" class="btn" style="margin-top:0">Book Free Strategy Call</a>
+<a href="#schedule-call" class="btn" style="margin-top:0">Book Free Strategy Call</a>
+</div>
+</section>
+
+<section id="schedule-call">
+<h2 class="section-title">Schedule Your Strategy Call</h2>
+<div class="calendly-wrap">
+<div class="calendly-inline-widget" data-url="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
 </div>
 </section>
 
@@ -383,5 +402,6 @@ form{padding:36px 20px}
 <div><h4>Global</h4><p>Remote-first worldwide execution</p></div>
 </footer>
 
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

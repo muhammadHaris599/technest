@@ -392,6 +392,30 @@ object-fit:cover;
 .team-role{font-size:20px;font-weight:800;color:#ecf6ff;line-height:1.2}
 .team-name{font-size:17px;color:#c6d8ff;margin-top:3px;font-weight:700}
 .team-file{margin-top:10px;font-size:13px;color:#85a2d4}
+
+.wl-intro{
+max-width:880px;
+margin:-42px auto 34px;
+text-align:center;
+color:#a7c0ec;
+font-size:20px;
+}
+
+.wl-highlight{
+display:block;
+margin-top:8px;
+font-size:clamp(24px,4vw,36px);
+font-weight:900;
+line-height:1.2;
+background:linear-gradient(90deg,#7af8ff,#9fb7ff,#7af8ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 30px rgba(0,240,255,.35);
+}
+
+.wl-pillars .card h3{font-size:24px}
+.wl-pillars .card p{font-size:18px}
+
 footer{
 background:#07101c;padding:90px 8%;margin-top:120px;
 display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
@@ -425,6 +449,7 @@ form{padding:36px 20px}
 <div class="logo"><img src="logo-technest.png" alt="Technest logo"></div>
 <nav>
 <a href="#services">Services</a>
+<a href="#white-label">White Label SEO</a>
 <a href="#process">Process</a>
   <a href="#team">Team</a>
 <a href="#reviews">Reviews</a>
@@ -450,10 +475,7 @@ form{padding:36px 20px}
 
 <section id="process">
 <h2 class="section-title">How We Work</h2>
-<div class="process-grid">
-<div class="process-step"><div class="step-number">STEP 01</div><h3>Come on Call</h3><p>We start with a strategy call to understand your business model, current bottlenecks, and growth targets.</p></div>
-<div class="process-step"><div class="step-number">STEP 02</div><h3>Your Wants</h3><p>You tell us exactly what you want: more leads, higher ROAS, better conversion rates, or full-funnel scale.</p></div>
-<div class="process-step"><div class="step-number">STEP 03</div><h3>Onboarding</h3><p>Our team sets up onboarding quickly with audits, roadmap approval, and clear KPI tracking from day one.</p></div>
+@@ -457,50 +482,63 @@ form{padding:36px 20px}
 <div class="process-step"><div class="step-number">STEP 04</div><h3>Get Results</h3><p>We launch, optimize, and report continuously so you see consistent performance improvements and revenue growth.</p></div>
 </div>
 </section>
@@ -475,6 +497,19 @@ form{padding:36px 20px}
 <div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 14l7-10 7 10-7 6-7-6z"></path><path d="M12 10v4"></path></svg></span><h3>Ecommerce Dev</h3><p>Scalable ecommerce infrastructure that blends performance engineering with brand design.</p></div>
 <div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"></rect><path d="M9 19h6"></path><path d="M12 16v3"></path></svg></span><h3>Custom Web Dev</h3><p>Fast, secure, and modern custom web experiences crafted for conversion and scale.</p></div>
 <div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 8l9 6 9-6"></path></svg></span><h3>Email Marketing</h3><p>Lifecycle automation and persuasive email funnels that increase LTV and repeat sales.</p></div>
+</div>
+</div>
+</section>
+
+<section id="white-label">
+<div class="section-box">
+<h2 class="section-title">White Label SEO Services for Agencies</h2>
+<p class="wl-intro">Scale your client SEO delivery without scaling your in-house headcount.
+<span class="wl-highlight">Your Agency Brand. Our SEO Execution. Shared Wins.</span></p>
+<div class="grid-3 wl-pillars">
+<div class="card"><h3>Invisible Fulfillment</h3><p>We work as your silent SEO backend while every deliverable is branded as your agency's own service excellence.</p></div>
+<div class="card"><h3>Rankings + Retention</h3><p>From technical fixes to content clusters, we drive measurable growth that helps you keep clients longer and increase retainers.</p></div>
+<div class="card"><h3>Fast Agency Scaling</h3><p>Onboard more SEO accounts confidently with ready SOPs, dedicated specialists, and proactive monthly growth roadmaps.</p></div>
 </div>
 </div>
 </section>

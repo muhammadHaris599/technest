@@ -417,22 +417,50 @@ text-shadow:0 0 30px rgba(0,240,255,.35);
 .wl-pillars .card p{font-size:18px}
 
 footer{
-background:#07101c;padding:90px 8%;margin-top:120px;
-display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-gap:40px;border-top:1px solid rgba(0,240,255,.26);
+margin-top:120px;
+padding:70px 8% 28px;
+background:linear-gradient(180deg,#060f1d 0%,#040916 100%);
+border-top:1px solid rgba(0,240,255,.35);
 box-shadow:0 -10px 50px rgba(0,240,255,0.08);
 }
-footer p{color:#9ab0d9}
-footer h4{margin-bottom:14px;color:var(--neon)}
+.footer-grid{
+display:grid;
+grid-template-columns:1.7fr 1fr 1fr;
+gap:34px;
+}
+.footer-brand{
+padding:22px;
+border-radius:20px;
+border:1px solid rgba(0,240,255,.24);
+background:linear-gradient(145deg,rgba(16,30,52,.9),rgba(5,11,22,.95));
+box-shadow:0 0 28px rgba(0,240,255,.12);
+}
+.footer-logo{width:180px;height:auto;display:block;margin-bottom:14px}
+.footer-title{font-size:20px;font-weight:800;color:#e8f7ff}
+.footer-text{color:#9ab0d9;font-size:15px}
+.footer-col h4{margin-bottom:12px;color:var(--neon);font-size:18px}
+.footer-col p,.footer-col a{color:#9ab0d9;font-size:15px}
+.footer-col a{display:inline-flex;align-items:center;gap:8px;color:#c7e6ff;transition:.25s}
+.footer-col a:hover{color:var(--accent);text-shadow:0 0 16px rgba(0,240,255,.4)}
+.footer-bottom{
+margin-top:26px;
+padding-top:18px;
+border-top:1px solid rgba(0,240,255,.2);
+color:#7e9ecc;
+font-size:13px;
+text-align:center;
+}
 
 @media(max-width:1100px){
-.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr 1fr}
+.grid-3,.stats,.reviews-grid,.process-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
 .contact-layout{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:768px){
-.grid-3,.stats,.reviews-grid,.process-grid,footer,.contact-layout{grid-template-columns:1fr}
+.grid-3,.stats,.reviews-grid,.process-grid,.contact-layout{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
 .hero{padding-top:190px}
 nav{display:none}
 .section-box{padding:55px 24px}
@@ -458,141 +486,7 @@ form{padding:36px 20px}
 <a href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" class="cta" target="_blank" rel="noopener noreferrer">Free Strategy Call</a>
 </nav>
 </header>
-
-<section class="hero">
-<h1>We Build Revenue Machines</h1>
-<p>AI-powered growth systems engineered for predictable scale.</p>
-<div class="revenue">$2M+ Revenue Generated</div>
-<a href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" class="btn" target="_blank" rel="noopener noreferrer">Start Scaling Now</a>
-
-<div class="stats">
-<div class="stat"><div class="stat-number">312+</div><div class="stat-label">Organic Growth</div></div>
-<div class="stat"><div class="stat-number">4.7x</div><div class="stat-label">ROAS</div></div>
-<div class="stat"><div class="stat-number">540+</div><div class="stat-label">Qualified Leads</div></div>
-<div class="stat"><div class="stat-number">20+</div><div class="stat-label">Industries</div></div>
-</div>
-</section>
-
-<section id="process">
-<h2 class="section-title">How We Work</h2>
-<div class="process-grid">
-<div class="process-step"><div class="step-number">STEP 01</div><h3>Come on Call</h3><p>We start with a strategy call to understand your business model, current bottlenecks, and growth targets.</p></div>
-<div class="process-step"><div class="step-number">STEP 02</div><h3>Your Wants</h3><p>You tell us exactly what you want: more leads, higher ROAS, better conversion rates, or full-funnel scale.</p></div>
-<div class="process-step"><div class="step-number">STEP 03</div><h3>Onboarding</h3><p>Our team sets up onboarding quickly with audits, roadmap approval, and clear KPI tracking from day one.</p></div>
-<div class="process-step"><div class="step-number">STEP 04</div><h3>Get Results</h3><p>We launch, optimize, and report continuously so you see consistent performance improvements and revenue growth.</p></div>
-</div>
-</section>
-
- <section id="services">
-<div class="section-box">
-<h2 class="section-title">Full Performance Stack</h2>
-<div class="grid-3">
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.2-4.2"></path></svg></span><h3>SEO</h3><p>Technical SEO + topical authority architecture to rank and compound organic traffic.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 3h4"></path><path d="M11 3v4l-3.5 6.3a3 3 0 0 0 2.6 4.4h3.8a3 3 0 0 0 2.6-4.4L13 7V3"></path><path d="M9.5 12h5"></path></svg></span><h3>CRO</h3><p>Data-backed conversion optimization to turn clicks into measurable revenue lifts.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"></rect><path d="M10 5h4"></path><path d="M11.5 18.5h1"></path></svg></span><h3>SMM</h3><p>High-performing social campaigns designed for attention, engagement, and lead flow.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"></path><path d="M18.5 14l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"></path></svg></span><h3>SMO</h3><p>Social profile optimization and trust-building strategy to improve audience quality.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="1"></circle></svg></span><h3>SEM</h3><p>Intent-focused paid search campaigns with transparent ROAS reporting every week.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="8" width="12" height="9" rx="2"></rect><path d="M9 8V6a3 3 0 0 1 6 0v2"></path><circle cx="10" cy="12.5" r=".8"></circle><circle cx="14" cy="12.5" r=".8"></circle><path d="M10 15h4"></path></svg></span><h3>AEO</h3><p>Answer engine optimization so your brand appears in modern AI-driven discovery.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16"></path><path d="M12 4a12 12 0 0 1 0 16"></path><path d="M12 4a12 12 0 0 0 0 16"></path></svg></span><h3>GEO</h3><p>Geo-targeted growth campaigns adapted by region, language, and local buyer behavior.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M6.5 16V10"></path><path d="M11.5 16V7"></path><path d="M16.5 16V12"></path><path d="M6.5 10l5-3 5 5"></path></svg></span><h3>Lead Generation</h3><p>Full-funnel systems that attract, qualify, and convert high-intent customers.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 10H7L6 8z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg></span><h3>Shopify Dev</h3><p>Conversion-ready Shopify builds with speed, UX clarity, and retention-first features.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.1 3.9 4.4.7-3.2 3.1.7 4.4-4-2.1-4 2.1.8-4.4-3.2-3.1 4.4-.7z"></path></svg></span><h3>WordPress Dev</h3><p>Flexible, SEO-first WordPress experiences tailored to your exact growth objectives.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 14l7-10 7 10-7 6-7-6z"></path><path d="M12 10v4"></path></svg></span><h3>Ecommerce Dev</h3><p>Scalable ecommerce infrastructure that blends performance engineering with brand design.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"></rect><path d="M9 19h6"></path><path d="M12 16v3"></path></svg></span><h3>Custom Web Dev</h3><p>Fast, secure, and modern custom web experiences crafted for conversion and scale.</p></div>
-<div class="card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 8l9 6 9-6"></path></svg></span><h3>Email Marketing</h3><p>Lifecycle automation and persuasive email funnels that increase LTV and repeat sales.</p></div>
-</div>
-</div>
-</section>
-
-<section id="white-label">
-<div class="section-box">
-<h2 class="section-title">White Label SEO Services for Agencies</h2>
-<p class="wl-intro">Scale your client SEO delivery without scaling your in-house headcount.
-<span class="wl-highlight">Your Agency Brand. Our SEO Execution. Shared Wins.</span></p>
-<div class="grid-3 wl-pillars">
-<div class="card"><h3>Invisible Fulfillment</h3><p>We work as your silent SEO backend while every deliverable is branded as your agency's own service excellence.</p></div>
-<div class="card"><h3>Rankings + Retention</h3><p>From technical fixes to content clusters, we drive measurable growth that helps you keep clients longer and increase retainers.</p></div>
-<div class="card"><h3>Fast Agency Scaling</h3><p>Onboard more SEO accounts confidently with ready SOPs, dedicated specialists, and proactive monthly growth roadmaps.</p></div>
-</div>
-</div>
-</section>
-
-<section>
-<h2 class="section-title">Case Studies</h2>
-<div class="grid-3">
-<div class="card"><div class="case-number">+312%</div><div class="case-label">Organic Sessions in 6 Months</div></div>
-<div class="card"><div class="case-number">4.7x</div><div class="case-label">Average Paid Media ROAS</div></div>
-<div class="card"><div class="case-number">540+</div><div class="case-label">Qualified Leads Per Quarter</div></div>
-</div>
-</section>
-<section id="team">
-<div class="team-wrap">
-<h2 class="section-title">Meet Our Team</h2>
-<p class="team-intro">A specialized growth crew behind every campaign. Replace the random names anytime — each card already maps to your image file name.</p>
-<div class="team-grid">
-<article class="team-card"><div class="team-avatar"><img src="CEO.png" alt="Aiden Stone - Founder / CEO" loading="lazy"></div><h3 class="team-role">Founder / CEO</h3><p class="team-name">Haris</p></article>
-<article class="team-card"><div class="team-avatar"><img src="CFO.png" alt="Mia Carter - Co Founder" loading="lazy"></div><h3 class="team-role">Co Founder</h3><p class="team-name">Kamran</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Google Ads Expert.png" alt="Leo Brooks - Google Ads Expert" loading="lazy"></div><h3 class="team-role">Google Ads Expert</h3><p class="team-name">Leo Brooks</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Lead Generataion Expert.png" alt="Riley Woods - Lead Generation Expert" loading="lazy"></div><h3 class="team-role">Lead Generation Expert</h3><p class="team-name">Riley Woods</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Wordpress Shopify Devloper.png" alt="Zane Miller - WordPress and Shopify Developer" loading="lazy"></div><h3 class="team-role">WordPress & Shopify Developer</h3><p class="team-name">Zane Miller</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Full Stack Developer.png" alt="Noah Hayes - Full Stack Developer" loading="lazy"></div><h3 class="team-role">Full Stack Developer</h3><p class="team-name">Noah Hayes</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Social Media Manager.png" alt="Sofia Blake - Social Media Manager" loading="lazy"></div><h3 class="team-role">Social Media Manager</h3><p class="team-name">Sofia Blake</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Senior Content Writer.png" alt="Ivy Morgan - Senior Content Writer" loading="lazy"></div><h3 class="team-role">Senior Content Writer</h3><p class="team-name">Ivy Morgan</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Creative Content Writer.png" alt="Dylan Scott - Creative Content Writer" loading="lazy"></div><h3 class="team-role">Creative Content Writer</h3><p class="team-name">Dylan Scott</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Creative Designer.png" alt="Kiara Reed - Creative Designer" loading="lazy"></div><h3 class="team-role">Creative Designer</h3><p class="team-name">Kiara Reed</p></article>
-<article class="team-card"><div class="team-avatar"><img src="Juinor Writer.png" alt="Jasper Cole - Junior Writer" loading="lazy"></div><h3 class="team-role">Junior Writer</h3><p class="team-name">Jasper Cole</p></article>
-</div>
-</div>
-</section>
-
-<section id="reviews">
-<h2 class="section-title">Client Reviews</h2>
-<div class="reviews-grid">
-<div class="testimonial"><div class="stars">★★★★★</div><p>“TECHNEST rebuilt our funnel and we saw high-quality leads almost immediately. Their communication and reporting are world-class.”</p><div class="reviewer">— Aarav, SaaS Founder</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div><p>“From ad strategy to landing page CRO, they handled everything. We scaled revenue while lowering CAC month after month.”</p><div class="reviewer">— Nisha, D2C Brand Owner</div></div>
-<div class="testimonial"><div class="stars">★★★★★</div><p>“The team brings structure, speed, and real expertise. Our organic traffic and email conversion rates are at an all-time high.”</p><div class="reviewer">— Rohan, Ecommerce Director</div></div>
-</div>
-</section>
-
-<section id="pricing">
-<h2 class="section-title">Pricing</h2>
-<p style="text-align:center;color:#a8c0ec;margin-top:-44px;margin-bottom:34px;">Transparent monthly retainers in USD. Final quote depends on ad spend, scope, and market competition.</p>
-<div class="grid-3">
-<div class="price-card"><h3>Starter</h3><div class="plan-price">USD $999</div><div class="plan-cycle">/month</div><p>Best for local businesses and early-stage brands building a steady lead pipeline.</p><ul class="plan-features"><li>1 core channel (SEO or Ads)</li><li>Bi-weekly reporting + call</li><li>Basic landing page CRO</li></ul><a class="mini-cta" href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" target="_blank" rel="noopener noreferrer">Choose Starter</a></div>
-<div class="price-card featured"><h3>Growth</h3><div class="plan-price">USD $1,799</div><div class="plan-cycle">/month</div><p>Best for growth-stage brands scaling performance marketing across channels.</p><ul class="plan-features"><li>SEO + Ads + CRO execution</li><li>Weekly optimization sprints + testing</li><li>Priority Slack/WhatsApp support</li></ul><a class="mini-cta" href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" target="_blank" rel="noopener noreferrer">Choose Growth</a></div>
-<div class="price-card"><h3>Scale</h3><div class="plan-price">USD $2,799</div><div class="plan-cycle">/month</div><p>Best for established brands needing an aggressive multi-channel growth engine.</p><ul class="plan-features"><li>Multi-channel growth engine (4+ channels)</li><li>Advanced attribution + dashboard</li><li>Dedicated growth manager</li></ul><a class="mini-cta" href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" target="_blank" rel="noopener noreferrer">Choose Scale</a></div>
-</div>
-</section>
-
-<section>
-<div class="conversion-strip">
-<div>
-<h3>Ready to turn traffic into predictable revenue?</h3>
-<p>Book a free strategy call and get a custom 90-day growth roadmap.</p>
-</div>
-<a href="https://calendly.com/mharisaly59/30min?hide_event_type_details=1&hide_gdpr_banner=1" class="btn" style="margin-top:0" target="_blank" rel="noopener noreferrer">Book Free Strategy Call</a>
-</div>
-</section>
-
-
-<section id="contact">
-<h2 class="section-title">Start Your Growth</h2>
-<div class="contact-layout">
-<div class="contact-form-card">
-<p class="contact-note">Share your details and goals. Our team will contact you with a custom growth plan.</p>
-<form action="https://formspree.io/f/mqedooql" method="POST">
-<input type="text" name="name" placeholder="Full Name" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="text" name="phone" placeholder="Phone">
-<input type="url" name="website" placeholder="Website">
-<details class="services-dropdown">
-<summary>Which services do you want? (Select one or more)</summary>
-<div class="services-grid">
-<label class="service-option"><input type="checkbox" name="services[]" value="SEO"> SEO</label>
-<label class="service-option"><input type="checkbox" name="services[]" value="CRO"> CRO</label>
-<label class="service-option"><input type="checkbox" name="services[]" value="SMM"> SMM</label>
-<label class="service-option"><input type="checkbox" name="services[]" value="SMO"> SMO</label>
-<label class="service-option"><input type="checkbox" name="services[]" value="SEM"> SEM</label>
+@@ -596,33 +624,47 @@ form{padding:36px 20px}
 <label class="service-option"><input type="checkbox" name="services[]" value="AEO"> AEO</label>
 <label class="service-option"><input type="checkbox" name="services[]" value="GEO"> GEO</label>
 <label class="service-option"><input type="checkbox" name="services[]" value="Lead Generation"> Lead Generation</label>
@@ -618,10 +512,24 @@ form{padding:36px 20px}
 </section>
 
 <footer>
-<div><h4>TECHNEST</h4><p>AI Revenue Systems Agency</p></div>
-<div><h4>Services</h4><p>SEO • CRO • Paid Media</p></div>
-<div><h4>Industries</h4><p>SaaS • D2C • B2B</p></div>
-<div><h4>Global</h4><p>Remote-first worldwide execution</p></div>
+<div class="footer-grid">
+<div class="footer-brand">
+<img class="footer-logo" src="logo-technest.png" alt="Technest logo">
+<p class="footer-title">TECHNEST</p>
+<p class="footer-text">AI Revenue Systems Agency building predictable growth engines for modern brands.</p>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<p>SEO • CRO • Paid Media</p>
+<p>White Label SEO • Web Dev</p>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<a href="mailto:hello@digitalnyst.com">✉ hello@digitalnyst.com</a>
+<p>Remote-first worldwide execution</p>
+</div>
+</div>
+<p class="footer-bottom">© 2026 TECHNEST. Built for growth-focused businesses.</p>
 </footer>
 
 </body>

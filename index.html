@@ -417,50 +417,22 @@ text-shadow:0 0 30px rgba(0,240,255,.35);
 .wl-pillars .card p{font-size:18px}
 
 footer{
-margin-top:120px;
-padding:70px 8% 28px;
-background:linear-gradient(180deg,#060f1d 0%,#040916 100%);
-border-top:1px solid rgba(0,240,255,.35);
+background:#07101c;padding:90px 8%;margin-top:120px;
+display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+gap:40px;border-top:1px solid rgba(0,240,255,.26);
 box-shadow:0 -10px 50px rgba(0,240,255,0.08);
 }
-.footer-grid{
-display:grid;
-grid-template-columns:1.7fr 1fr 1fr;
-gap:34px;
-}
-.footer-brand{
-padding:22px;
-border-radius:20px;
-border:1px solid rgba(0,240,255,.24);
-background:linear-gradient(145deg,rgba(16,30,52,.9),rgba(5,11,22,.95));
-box-shadow:0 0 28px rgba(0,240,255,.12);
-}
-.footer-logo{width:180px;height:auto;display:block;margin-bottom:14px}
-.footer-title{font-size:20px;font-weight:800;color:#e8f7ff}
-.footer-text{color:#9ab0d9;font-size:15px}
-.footer-col h4{margin-bottom:12px;color:var(--neon);font-size:18px}
-.footer-col p,.footer-col a{color:#9ab0d9;font-size:15px}
-.footer-col a{display:inline-flex;align-items:center;gap:8px;color:#c7e6ff;transition:.25s}
-.footer-col a:hover{color:var(--accent);text-shadow:0 0 16px rgba(0,240,255,.4)}
-.footer-bottom{
-margin-top:26px;
-padding-top:18px;
-border-top:1px solid rgba(0,240,255,.2);
-color:#7e9ecc;
-font-size:13px;
-text-align:center;
-}
+footer p{color:#9ab0d9}
+footer h4{margin-bottom:14px;color:var(--neon)}
 
 @media(max-width:1100px){
-.grid-3,.stats,.reviews-grid,.process-grid{grid-template-columns:1fr 1fr}
-.footer-grid{grid-template-columns:1fr 1fr}
+.grid-3,.stats,.reviews-grid,.process-grid,footer{grid-template-columns:1fr 1fr}
 .contact-layout{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:768px){
-.grid-3,.stats,.reviews-grid,.process-grid,.contact-layout{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr}
+.grid-3,.stats,.reviews-grid,.process-grid,footer,.contact-layout{grid-template-columns:1fr}
 .hero{padding-top:190px}
 nav{display:none}
 .section-box{padding:55px 24px}
@@ -512,24 +484,10 @@ form{padding:36px 20px}
 </section>
 
 <footer>
-<div class="footer-grid">
-<div class="footer-brand">
-<img class="footer-logo" src="logo-technest.png" alt="Technest logo">
-<p class="footer-title">TECHNEST</p>
-<p class="footer-text">AI Revenue Systems Agency building predictable growth engines for modern brands.</p>
-</div>
-<div class="footer-col">
-<h4>Services</h4>
-<p>SEO • CRO • Paid Media</p>
-<p>White Label SEO • Web Dev</p>
-</div>
-<div class="footer-col">
-<h4>Contact</h4>
-<a href="mailto:hello@digitalnyst.com">✉ hello@digitalnyst.com</a>
-<p>Remote-first worldwide execution</p>
-</div>
-</div>
-<p class="footer-bottom">© 2026 TECHNEST. Built for growth-focused businesses.</p>
+<div><h4>TECHNEST</h4><p>AI Revenue Systems Agency</p></div>
+<div><h4>Services</h4><p>SEO • CRO • Paid Media</p></div>
+<div><h4>Industries</h4><p>SaaS • D2C • B2B</p></div>
+<div><h4>Global</h4><p>Remote-first worldwide execution</p></div>
 </footer>
 
 </body>
